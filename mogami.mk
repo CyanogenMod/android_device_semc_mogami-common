@@ -16,7 +16,7 @@
 -include device/semc/msm7x30-common/msm7x30.mk
 
 PRODUCT_PACKAGES += \
-	hostap
+    hostap
 
 # Init files
 PRODUCT_COPY_FILES += \
