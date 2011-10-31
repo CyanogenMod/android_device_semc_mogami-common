@@ -28,6 +28,8 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/prebuilt/tiap_loader.sh:system/bin/tiap_loader.sh \
     device/semc/mogami-common/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/softap/hostapd.conf \
+    device/semc/mogami-common/prebuilt/tiwlan_firmware.bin:system/etc/wifi/tiwlan_firmware.bin \
+    device/semc/mogami-common/prebuilt/tiwlan_firmware_ap.bin:system/etc/wifi/softap/tiwlan_firmware_ap.bin \
     device/semc/mogami-common/modules/sdio.ko:root/modules/sdio.ko \
     device/semc/mogami-common/modules/tiap_drv.ko:root/modules/tiap_drv.ko \
     device/semc/mogami-common/modules/tiwlan_drv.ko:root/modules/tiwlan_drv.ko
