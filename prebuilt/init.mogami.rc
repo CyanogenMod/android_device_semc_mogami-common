@@ -104,6 +104,7 @@ on boot
     chmod 0666 /sys/devices/i2c-0/0-0053/torch_current
     chmod 0666 /sys/devices/i2c-0/0-0053/cm_torch
     chmod 0666 /sys/devices/i2c-0/0-0040/leds/torch/brightness
+    chmod 0666 /sys/class/leds/torch/max_current
 
     # Owner for the proximity sensor
     chown system system /sys/devices/i2c-0/0-0054/threshold

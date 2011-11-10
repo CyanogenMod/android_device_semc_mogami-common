@@ -11,15 +11,15 @@
 /dev/pmem_venc            0660   system     audio
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
 /dev/oncrpc/30000017:*   0660    radio   radio
-/dev/oncrpc/30000000:*          0660    radio   radio
-/dev/oncrpc/30000016:*		0660    radio   radio
-/dev/oncrpc/3000003c:*		0660    radio   radio
-/dev/oncrpc/30000019:*		0660    radio   radio
-/dev/oncrpc/3000000e:*		0660    radio   radio
-/dev/oncrpc/30000012:*		0660    radio   radio
-/dev/oncrpc/30000003:*          0660    radio   radio
-/dev/oncrpc/3000001b:*		0660    radio   radio
-/dev/oncrpc/3000006b:*          0660    radio   system
+/dev/oncrpc/30000000:*   0660    radio   radio
+/dev/oncrpc/30000016:*   0660    radio   radio
+/dev/oncrpc/3000003c:*   0660    radio   radio
+/dev/oncrpc/30000019:*   0660    radio   radio
+/dev/oncrpc/3000000e:*   0660    radio   radio
+/dev/oncrpc/30000012:*   0660    radio   radio
+/dev/oncrpc/30000003:*   0660    radio   radio
+/dev/oncrpc/3000001b:*   0660    radio   radio
+/dev/oncrpc/3000006b:*   0660    radio   system
 /sys/devices/virtual/input/input*   enable      0660  root   input
 /sys/devices/virtual/input/input*   poll_delay  0660  root   input
 /sys/devices/virtual/input/input*   bma250_rate        0640  system   system
