@@ -25,7 +25,7 @@ WIFI_FIRMWARE_LOADER := wlan_loader
 WIFI_EXT_MODULE_PATH := /system/lib/modules/sdio.ko
 WIFI_EXT_MODULE_NAME := sdio
 
-BOARD_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
+#BOARD_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
 
 BOARD_OVERLAY_FORMAT_YCrCb_420_SP := true
 BOARD_CAMERA_USE_GETBUFFERINFO := true
