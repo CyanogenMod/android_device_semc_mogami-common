@@ -208,3 +208,7 @@ service touchd /system/bin/touchd
     user root
 
 service slidercounter /system/bin/slidercounter keypad-mango
+
+service sysinit /system/bin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+    disabled
+    oneshot
