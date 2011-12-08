@@ -1,0 +1,418 @@
+diff -crB compat-wireless/net/wireless/core.c compat-wireless.semc/net/wireless/core.c
+*** compat-wireless/net/wireless/core.c	2011-12-01 15:14:44.449113000 +0200
+--- compat-wireless.semc/net/wireless/core.c	2011-12-01 14:32:57.000000000 +0200
+***************
+*** 3,9 ****
+   *
+   * Copyright 2006-2010		Johannes Berg <johannes@sipsolutions.net>
+   */
+! 
+  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+  
+  #include <linux/if.h>
+--- 3,9 ----
+   *
+   * Copyright 2006-2010		Johannes Berg <johannes@sipsolutions.net>
+   */
+! #undef pr_fmt
+  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+  
+  #include <linux/if.h>
+diff -crB compat-wireless/net/wireless/reg.c compat-wireless.semc/net/wireless/reg.c
+*** compat-wireless/net/wireless/reg.c	2011-12-01 15:14:44.219113000 +0200
+--- compat-wireless.semc/net/wireless/reg.c	2011-12-01 14:33:19.000000000 +0200
+***************
+*** 33,38 ****
+--- 33,39 ----
+   *
+   */
+  
++ #undef pr_fmt
+  #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+  
+  #include <linux/kernel.h>
+diff -crB compat-wireless/drivers/net/wireless/Makefile compat-wireless.semc/drivers/net/wireless/Makefile
+*** compat-wireless/drivers/net/wireless/Makefile	2011-12-01 21:50:53.909112998 +0200
+--- compat-wireless.semc/drivers/net/wireless/Makefile	2011-12-01 21:50:37.359111664 +0200
+***************
+*** 1,3 ****
+- obj-$(CONFIG_WL1251)	+= wl1251/
+  obj-$(CONFIG_WL12XX)	+= wl12xx/
+  obj-$(CONFIG_WL12XX_PLATFORM_DATA)	+= wl12xx/
+--- 1,2 ----
+diff -crB compat-wireless/drivers/net/wireless/wl12xx/main.c compat-wireless.semc/drivers/net/wireless/wl12xx/main.c
+*** compat-wireless/drivers/net/wireless/wl12xx/main.c	2011-12-01 21:56:11.219113001 +0200
+--- compat-wireless.semc/drivers/net/wireless/wl12xx/main.c	2011-12-01 21:55:55.299147528 +0200
+***************
+*** 4696,4762 ****
+  static DEVICE_ATTR(hw_pg_ver, S_IRUGO,
+  		   wl1271_sysfs_show_hw_pg_ver, NULL);
+  
+- static ssize_t wl1271_sysfs_read_fwlog(struct file *filp, struct kobject *kobj,
+- 				       struct bin_attribute *bin_attr,
+- 				       char *buffer, loff_t pos, size_t count)
+- {
+- 	struct device *dev = container_of(kobj, struct device, kobj);
+- 	struct wl1271 *wl = dev_get_drvdata(dev);
+- 	ssize_t len;
+- 	int ret;
+  
+- 	ret = mutex_lock_interruptible(&wl->mutex);
+- 	if (ret < 0)
+- 		return -ERESTARTSYS;
+- 
+- 	/* Let only one thread read the log at a time, blocking others */
+- 	while (wl->fwlog_size == 0) {
+- 		DEFINE_WAIT(wait);
+- 
+- 		prepare_to_wait_exclusive(&wl->fwlog_waitq,
+- 					  &wait,
+- 					  TASK_INTERRUPTIBLE);
+- 
+- 		if (wl->fwlog_size != 0) {
+- 			finish_wait(&wl->fwlog_waitq, &wait);
+- 			break;
+- 		}
+- 
+- 		mutex_unlock(&wl->mutex);
+- 
+- 		schedule();
+- 		finish_wait(&wl->fwlog_waitq, &wait);
+- 
+- 		if (signal_pending(current))
+- 			return -ERESTARTSYS;
+- 
+- 		ret = mutex_lock_interruptible(&wl->mutex);
+- 		if (ret < 0)
+- 			return -ERESTARTSYS;
+- 	}
+- 
+- 	/* Check if the fwlog is still valid */
+- 	if (wl->fwlog_size < 0) {
+- 		mutex_unlock(&wl->mutex);
+- 		return 0;
+- 	}
+- 
+- 	/* Seeking is not supported - old logs are not kept. Disregard pos. */
+- 	len = min(count, (size_t)wl->fwlog_size);
+- 	wl->fwlog_size -= len;
+- 	memcpy(buffer, wl->fwlog, len);
+- 
+- 	/* Make room for new messages */
+- 	memmove(wl->fwlog, wl->fwlog + len, wl->fwlog_size);
+- 
+- 	mutex_unlock(&wl->mutex);
+- 
+- 	return len;
+- }
+  
+  static struct bin_attribute fwlog_attr = {
+  	.attr = {.name = "fwlog", .mode = S_IRUSR},
+- 	.read = wl1271_sysfs_read_fwlog,
+  };
+  
+  int wl1271_register_hw(struct wl1271 *wl)
+--- 4696,4705 ----
+diff -crB compat-wireless/include/linux/compat-2.6.34.h compat-wireless.semc/include/linux/compat-2.6.34.h
+*** compat-wireless/include/linux/compat-2.6.34.h	2011-12-02 07:11:25.799113002 +0200
+--- compat-wireless.semc/include/linux/compat-2.6.34.h	2011-12-02 22:13:18.499126810 +0200
+***************
+*** 243,249 ****
+  { return 0; }
+  
+  #define MMC_PM_KEEP_POWER	(1 << 0)	/* preserve card power during suspend */
+- #define sdio_set_host_pm_flags(a, b) 0
+  
+  #define rcu_dereference_protected(p, c) (p)
+  #define rcu_access_pointer(p)   ACCESS_ONCE(p)
+--- 243,248 ----
+diff -crB compat-wireless/net/mac80211/rx.c compat-wireless.semc/net/mac80211/rx.c
+*** compat-wireless/net/mac80211/rx.c	2011-12-02 23:44:03.949113002 +0200
+--- compat-wireless.semc/net/mac80211/rx.c	2011-12-02 23:32:06.819113557 +0200
+***************
+*** 1207,1213 ****
+  	sta->rx_fragments++;
+  	sta->rx_bytes += rx->skb->len;
+  	sta->last_signal = status->signal;
+- 	ewma_add(&sta->avg_signal, -status->signal);
+  
+  	/*
+  	 * Change STA power saving mode only at the end of a frame
+--- 1207,1212 ----
+diff -crB compat-wireless/net/mac80211/sta_info.c compat-wireless.semc/net/mac80211/sta_info.c
+*** compat-wireless/net/mac80211/sta_info.c	2011-12-02 23:44:03.719113002 +0200
+--- compat-wireless.semc/net/mac80211/sta_info.c	2011-12-02 23:14:09.099113003 +0200
+***************
+*** 303,309 ****
+  
+  	do_posix_clock_monotonic_gettime(&uptime);
+  	sta->last_connected = uptime.tv_sec;
+- 	ewma_init(&sta->avg_signal, 1024, 8);
+  
+  	if (sta_prepare_rate_control(local, sta, gfp)) {
+  		kfree(sta);
+--- 303,308 ----
+diff -crB compat-wireless/net/wireless/core.c compat-wireless.semc/net/wireless/core.c
+*** compat-wireless/net/wireless/core.c	2011-12-02 23:44:04.129113002 +0200
+--- compat-wireless.semc/net/wireless/core.c	2011-12-02 22:56:59.709113003 +0200
+***************
+*** 636,642 ****
+  	if (!rdev->ops->rfkill_poll)
+  		return;
+  	rdev->rfkill_ops.poll = cfg80211_rfkill_poll;
+- 	rfkill_resume_polling(rdev->rfkill);
+  }
+  EXPORT_SYMBOL(wiphy_rfkill_start_polling);
+  
+--- 636,641 ----
+diff -crB compat-wireless/config.mk compat-wireless.semc/config.mk
+*** compat-wireless/config.mk	2011-12-03 08:02:44.069113000 +0200
+--- compat-wireless.semc/config.mk	2011-12-03 08:04:11.569104115 +0200
+***************
+*** 519,529 ****
+  CONFIG_COMPAT_WL1251_SDIO=m
+  endif #CONFIG_WL12XX_PLATFORM_DATA
+  
+- ifndef CONFIG_COMPAT_KERNEL_32
+  ifdef CONFIG_WL12XX_PLATFORM_DATA
+  CONFIG_COMPAT_WL12XX_SDIO=m
+  endif #CONFIG_WL12XX_PLATFORM_DATA
+- endif #CONFIG_COMPAT_KERNEL_32
+  
+  endif #CONFIG_CRC7
+  
+--- 519,527 ----
+diff -crB compat-wireless/compat/Makefile compat-wireless.semc/compat/Makefile
+*** compat-wireless/compat/Makefile	2011-12-03 08:48:14.519113004 +0200
+--- compat-wireless.semc/compat/Makefile	2011-12-03 08:34:44.739120077 +0200
+***************
+*** 1,5 ****
+  obj-m += compat.o
+! #compat-objs :=
+  
+  obj-$(CONFIG_COMPAT_FIRMWARE_CLASS) += compat_firmware_class.o
+  
+--- 1,5 ----
+  obj-m += compat.o
+! compat-objs := compat-2.6.33.o compat-2.6.35.o compat-2.6.36.o compat-2.6.37.o compat-2.6.38.o kstrtox.o
+  
+  obj-$(CONFIG_COMPAT_FIRMWARE_CLASS) += compat_firmware_class.o
+  
+diff -crB compat-wireless/drivers/net/wireless/wl12xx/wl12xx.h compat-wireless.semc/drivers/net/wireless/wl12xx/wl12xx.h
+*** compat-wireless/drivers/net/wireless/wl12xx/wl12xx.h	2011-12-04 09:19:23.702269996 +0200
+--- compat-wireless.semc/drivers/net/wireless/wl12xx/wl12xx.h	2011-12-04 09:18:45.082258053 +0200
+***************
+*** 133,149 ****
+  
+  
+  
+! #define WL1271_FW_NAME "ti-connectivity/wl1271-fw-multirole-roc.bin"
+! #define WL1271_PLT_FW_NAME "ti-connectivity/wl1271-fw-multirole-plt.bin"
+! #define WL128X_FW_NAME "ti-connectivity/wl128x-fw-multirole-roc.bin"
+! #define WL128X_PLT_FW_NAME "ti-connectivity/wl128x-fw-multirole-plt.bin"
+  
+  /*
+   * wl127x and wl128x are using the same NVS file name. However, the
+   * ini parameters between them are different.  The driver validates
+   * the correct NVS size in wl1271_boot_upload_nvs().
+   */
+! #define WL12XX_NVS_NAME "ti-connectivity/wl1271-nvs.bin"
+  
+  #define WL1271_TX_SECURITY_LO16(s) ((u16)((s) & 0xffff))
+  #define WL1271_TX_SECURITY_HI32(s) ((u32)(((s) >> 16) & 0xffffffff))
+--- 133,149 ----
+  
+  
+  
+! #define WL1271_FW_NAME "wl1271-fw-multirole-roc.bin"
+! #define WL1271_PLT_FW_NAME "wl1271-fw-multirole-plt.bin"
+! #define WL128X_FW_NAME "wl128x-fw-multirole-roc.bin"
+! #define WL128X_PLT_FW_NAME "wl128x-fw-multirole-plt.bin"
+  
+  /*
+   * wl127x and wl128x are using the same NVS file name. However, the
+   * ini parameters between them are different.  The driver validates
+   * the correct NVS size in wl1271_boot_upload_nvs().
+   */
+! #define WL12XX_NVS_NAME "wl1271-nvs.bin"
+  
+  #define WL1271_TX_SECURITY_LO16(s) ((u16)((s) & 0xffff))
+  #define WL1271_TX_SECURITY_HI32(s) ((u32)(((s) >> 16) & 0xffffffff))
+diff -crB compat-wireless/compat/compat_firmware_class.c compat-wireless.semc/compat/compat_firmware_class.c
+*** compat-wireless/compat/compat_firmware_class.c	2011-12-04 10:11:59.382269989 +0200
+--- compat-wireless.semc/compat/compat_firmware_class.c	2011-12-04 10:09:10.202269151 +0200
+***************
+*** 622,640 ****
+   *      should be distinctive enough not to be confused with any other
+   *      firmware image for this or any other device.
+   **/
+! int
+  request_firmware(const struct firmware **firmware_p, const char *name,
+                   struct device *device)
+  {
+          int uevent = 1;
+          return _request_firmware(firmware_p, name, device, uevent, false);
+  }
+! 
+  /**
+   * release_firmware: - release the resource associated with a firmware image
+   * @fw: firmware resource to release
+   **/
+! void release_firmware(const struct firmware *fw)
+  {
+  	if (fw) {
+  		if (!fw_is_builtin_firmware(fw))
+--- 622,640 ----
+   *      should be distinctive enough not to be confused with any other
+   *      firmware image for this or any other device.
+   **/
+! /*int
+  request_firmware(const struct firmware **firmware_p, const char *name,
+                   struct device *device)
+  {
+          int uevent = 1;
+          return _request_firmware(firmware_p, name, device, uevent, false);
+  }
+! */
+  /**
+   * release_firmware: - release the resource associated with a firmware image
+   * @fw: firmware resource to release
+   **/
+! /*void release_firmware(const struct firmware *fw)
+  {
+  	if (fw) {
+  		if (!fw_is_builtin_firmware(fw))
+***************
+*** 642,648 ****
+  		kfree(fw);
+  	}
+  }
+! 
+  /* Async support */
+  struct firmware_work {
+  	struct work_struct work;
+--- 642,648 ----
+  		kfree(fw);
+  	}
+  }
+! */
+  /* Async support */
+  struct firmware_work {
+  	struct work_struct work;
+***************
+*** 742,747 ****
+  fs_initcall(firmware_class_init);
+  module_exit(firmware_class_exit);
+  
+! EXPORT_SYMBOL(release_firmware);
+! EXPORT_SYMBOL(request_firmware);
+  EXPORT_SYMBOL(request_firmware_nowait);
+--- 742,747 ----
+  fs_initcall(firmware_class_init);
+  module_exit(firmware_class_exit);
+  
+! //EXPORT_SYMBOL(release_firmware);
+! //EXPORT_SYMBOL(request_firmware);
+  EXPORT_SYMBOL(request_firmware_nowait);
+
+
+diff -crB compat-wireless/include/linux/compat-2.6.33.h compat-wireless.semc/include/linux/compat-2.6.33.h
+*** compat-wireless/include/linux/compat-2.6.33.h	2011-12-04 16:36:57.272269987 +0200
+--- compat-wireless.semc/include/linux/compat-2.6.33.h	2011-12-04 16:47:59.092271401 +0200
+***************
+*** 14,21 ****
+  #endif
+  #include <linux/firmware.h>
+  
+! #define release_firmware compat_release_firmware
+! #define request_firmware compat_request_firmware
+  #define request_firmware_nowait compat_request_firmware_nowait
+  
+  #if defined(CONFIG_FW_LOADER) || defined(CONFIG_FW_LOADER_MODULE)
+--- 14,21 ----
+  #endif
+  #include <linux/firmware.h>
+  
+! //define release_firmware compat_release_firmware
+! //#define request_firmware compat_request_firmware
+  #define request_firmware_nowait compat_request_firmware_nowait
+  
+  #if defined(CONFIG_FW_LOADER) || defined(CONFIG_FW_LOADER_MODULE)
+diff -crB compat-wireless/drivers/net/wireless/wl12xx/sdio.c compat-wireless.semc/drivers/net/wireless/wl12xx/sdio.c
+*** compat-wireless/drivers/net/wireless/wl12xx/sdio.c	2011-12-04 22:52:57.952269989 +0200
+--- compat-wireless.semc/drivers/net/wireless/wl12xx/sdio.c	2011-12-04 22:04:45.172271941 +0200
+***************
+*** 172,184 ****
+  	/* If enabled, tell runtime PM not to power off the card */
+  	if (pm_runtime_enabled(&func->dev)) {
+  		ret = pm_runtime_get_sync(&func->dev);
+! 		if (ret)
+  			goto out;
+  	} else {
+  		/* Runtime PM is disabled: power up the card manually */
+! 		ret = mmc_power_restore_host(func->card->host);
+! 		if (ret < 0)
+! 			goto out;
+  	}
+  
+  	sdio_claim_host(func);
+--- 172,185 ----
+  	/* If enabled, tell runtime PM not to power off the card */
+  	if (pm_runtime_enabled(&func->dev)) {
+  		ret = pm_runtime_get_sync(&func->dev);
+! 		printk ("tell runtime PM not to power off the card");
+! 		if (ret<0)
+  			goto out;
+  	} else {
+  		/* Runtime PM is disabled: power up the card manually */
+! 		mmc_power_restore_host(func->card->host);
+! 		printk ("Runtime PM is disabled: power up the card manually");
+! 		ret = 0;
+  	}
+  
+  	sdio_claim_host(func);
+***************
+*** 192,209 ****
+  {
+  	struct sdio_func *func = wl_to_func(wl);
+  	int ret;
+  
+  	sdio_disable_func(func);
+  	sdio_release_host(func);
+  
+  	/* Power off the card manually, even if runtime PM is enabled. */
+! 	ret = mmc_power_save_host(func->card->host);
+! 	if (ret < 0)
+! 		return ret;
+  
+  	/* If enabled, let runtime PM know the card is powered off */
+  	if (pm_runtime_enabled(&func->dev))
+  		ret = pm_runtime_put_sync(&func->dev);
+  
+  	return ret;
+  }
+--- 193,216 ----
+  {
+  	struct sdio_func *func = wl_to_func(wl);
+  	int ret;
++ 	printk ("wl1271_power_off");
+  
+  	sdio_disable_func(func);
+  	sdio_release_host(func);
+  
+  	/* Power off the card manually, even if runtime PM is enabled. */
+! 	mmc_power_save_host(func->card->host);
+! 	printk ("wl1271_power_off_power_save");
+! 
+! //	ret=0
+! //	return ret;
+  
+  	/* If enabled, let runtime PM know the card is powered off */
+  	if (pm_runtime_enabled(&func->dev))
++ 		{
+  		ret = pm_runtime_put_sync(&func->dev);
++ 		printk ("wl1271_power_off_pm_runtime_enabled");
++ 		}
+  
+  	return ret;
+  }

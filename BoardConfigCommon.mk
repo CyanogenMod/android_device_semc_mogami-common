@@ -13,17 +13,16 @@
 # limitations under the License.
 -include device/semc/msm7x30-common/BoardConfigCommon.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := mogami
+TARGET_BOOTLOADER_BOARD_NAME := semc
 
-BOARD_WPA_SUPPLICANT_DRIVER := CUSTOM
-BOARD_WLAN_DEVICE := wl1271
-BOARD_SOFTAP_DEVICE := wl1271
-WPA_SUPPLICANT_VERSION := VER_0_6_X
-WIFI_DRIVER_MODULE_PATH := /system/lib/modules/tiwlan_drv.ko
-WIFI_DRIVER_MODULE_NAME := tiwlan_drv
-WIFI_FIRMWARE_LOADER := wlan_loader
-WIFI_EXT_MODULE_PATH := /system/lib/modules/sdio.ko
-WIFI_EXT_MODULE_NAME := sdio
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
+BOARD_WPA_HOSTAPD_DRIVER := NL80211
+BOARD_WPA_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_wl12xx
+BOARD_WLAN_DEVICE := wl12xx_mac80211
+BOARD_SOFTAP_DEVICE := wl12xx_mac80211
+COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 
 #BOARD_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
 

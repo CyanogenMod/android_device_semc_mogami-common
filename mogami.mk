@@ -15,19 +15,26 @@
 #
 -include device/semc/msm7x30-common/msm7x30.mk
 
-PRODUCT_PACKAGES += \
-    hostap
 
-# Init files
+# Init files  and configs
 PRODUCT_COPY_FILES += \
     device/semc/mogami-common/prebuilt/ueventd.semc.rc:root/ueventd.semc.rc \
-    device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc
+    device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc \
+    device/semc/mogami-common/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
-    device/semc/mogami-common/prebuilt/tiap_loader.sh:system/bin/tiap_loader.sh \
-    device/semc/mogami-common/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/softap/hostapd.conf \
-    device/semc/mogami-common/modules/sdio.ko:root/modules/sdio.ko \
-    device/semc/mogami-common/modules/tiap_drv.ko:root/modules/tiap_drv.ko \
-    device/semc/mogami-common/modules/tiwlan_drv.ko:root/modules/tiwlan_drv.ko
+    device/semc/mogami-common/wl12xx/modules/compat.ko:root/modules/compat.ko \
+    device/semc/mogami-common/wl12xx/modules/compat_firmware_class.ko:root/modules/compat_firmware_class.ko \
+    device/semc/mogami-common/wl12xx/modules/cfg80211.ko:root/modules/cfg80211.ko \
+    device/semc/mogami-common/wl12xx/modules/mac80211.ko:root/modules/mac80211.ko \
+    device/semc/mogami-common/wl12xx/modules/wl12xx.ko:root/modules/wl12xx.ko \
+    device/semc/mogami-common/wl12xx/modules/wl12xx_sdio.ko:root/modules/wl12xx_sdio.ko
+
+#WIFI firmware
+PRODUCT_COPY_FILES += \
+    device/semc/mogami-common/wl12xx/firmware/wl1271-fw-multirole-roc.bin:system/etc/firmware/wl1271-fw-multirole-roc.bin \
+    device/semc/mogami-common/wl12xx/firmware/wl1271-nvs.bin:system/etc/firmware/wl1271-nvs.bin
+
+#PRODUCT_PACKAGES += \
+#    hostap
