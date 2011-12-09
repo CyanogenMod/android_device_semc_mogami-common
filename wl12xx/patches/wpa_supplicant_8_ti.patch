@@ -1,0 +1,81 @@
+diff -crB wpa_supplicant_8/wpa_supplicant/Android.mk wpa_supplicant_8.new/wpa_supplicant/Android.mk
+*** wpa_supplicant_8/wpa_supplicant/Android.mk	2011-12-02 08:03:09.000000000 +0200
+--- wpa_supplicant_8.new/wpa_supplicant/Android.mk	2011-12-05 15:21:47.572293616 +0200
+***************
+*** 34,40 ****
+  # Set Android log name
+  L_CFLAGS += -DANDROID_LOG_NAME=\"wpa_supplicant\"
+  
+! ifdef CONFIG_DRIVER_NL80211
+  L_CFLAGS += -DANDROID_BRCM_P2P_PATCH
+  endif
+  
+--- 34,40 ----
+  # Set Android log name
+  L_CFLAGS += -DANDROID_LOG_NAME=\"wpa_supplicant\"
+  
+! ifeq ($(BOARD_WLAN_DEVICE),bcmdhd)
+  L_CFLAGS += -DANDROID_BRCM_P2P_PATCH
+  endif
+  
+diff -crB wpa_supplicant_8/wpa_supplicant/p2p_supplicant.c wpa_supplicant_8.new/wpa_supplicant/p2p_supplicant.c
+*** wpa_supplicant_8/wpa_supplicant/p2p_supplicant.c	2011-12-02 08:03:09.000000000 +0200
+--- wpa_supplicant_8.new/wpa_supplicant/p2p_supplicant.c	2011-12-05 14:07:47.342270721 +0200
+***************
+*** 1230,1237 ****
+  {
+  	struct wpa_supplicant *wpa_s = ctx;
+  #ifdef ANDROID_BRCM_P2P_PATCH
+! 	wpa_msg(wpa_s, MSG_INFO, P2P_EVENT_DEVICE_LOST
+! 		"p2p_dev_addr=" MACSTR, MAC2STR(dev_addr));
+  #endif
+  	wpas_notify_p2p_device_lost(wpa_s, dev_addr);
+  }
+--- 1230,1237 ----
+  {
+  	struct wpa_supplicant *wpa_s = ctx;
+  #ifdef ANDROID_BRCM_P2P_PATCH
+! //	wpa_msg(wpa_s, MSG_INFO, P2P_EVENT_DEVICE_LOST
+! //		"p2p_dev_addr=" MACSTR, MAC2STR(dev_addr));
+  #endif
+  	wpas_notify_p2p_device_lost(wpa_s, dev_addr);
+  }
+diff -crB wpa_supplicant_8/wpa_supplicant/src/drivers/driver_nl80211.c wpa_supplicant_8.new/wpa_supplicant/src/drivers/driver_nl80211.c
+*** wpa_supplicant_8/wpa_supplicant/src/drivers/driver_nl80211.c	2011-12-02 08:03:09.000000000 +0200
+--- wpa_supplicant_8.new/wpa_supplicant/src/drivers/driver_nl80211.c	2011-12-05 15:24:01.712277289 +0200
+***************
+*** 231,237 ****
+  }
+  #endif /* HOSTAPD */
+  
+! #ifdef ANDROID
+  extern int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
+  					 size_t buf_len);
+  #endif
+--- 231,238 ----
+  }
+  #endif /* HOSTAPD */
+  
+! #ifdef ANDROID_BRCM_P2P_PATCH 
+! //not needed for ti
+  extern int wpa_driver_nl80211_driver_cmd(void *priv, char *cmd, char *buf,
+  					 size_t buf_len);
+  #endif
+***************
+*** 6843,6849 ****
+  	.set_p2p_powersave = wpa_driver_set_p2p_ps,
+  	.set_ap_wps_ie = wpa_driver_set_ap_wps_p2p_ie,
+  #endif
+! #ifdef ANDROID
+  	.driver_cmd = wpa_driver_nl80211_driver_cmd,
+  #endif
+  };
+--- 6844,6851 ----
+  	.set_p2p_powersave = wpa_driver_set_p2p_ps,
+  	.set_ap_wps_ie = wpa_driver_set_ap_wps_p2p_ie,
+  #endif
+! #ifdef ANDROID_BRCM_P2P_PATCH 
+! //not needed for ti
+  	.driver_cmd = wpa_driver_nl80211_driver_cmd,
+  #endif
+  };

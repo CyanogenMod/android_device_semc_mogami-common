@@ -135,34 +135,6 @@ on boot
 on property:init.svc.bluetoothd=running
     write /sys/devices/virtual/bluetooth/hci0/link_supervision_timeout 6400
 
-//on property:sys.usb.config=adb
-//    write /sys/module/g_android/parameters/product_id 6000
-//    start adbd
-//    setprop sys.usb.state $sys.usb.config
-
-on property:sys.usb.config=mass_storage,adb
-    write /sys/module/g_android/parameters/product_id 6000
-    start adbd
-    setprop sys.usb.state $sys.usb.config
-
-on property:sys.usb.config=mass_storage
-    write /sys/module/g_android/parameters/product_id 6146
-    setprop sys.usb.state $sys.usb.config
-
-on property:sys.usb.config=rndis
-    write /sys/module/g_android/parameters/product_id 7000
-    setprop sys.usb.state $sys.usb.config
-
-on property:sys.usb.config=rndis,adb
-    write /sys/module/g_android/parameters/product_id 8000
-    start adbd
-    setprop sys.usb.state $sys.usb.config
-
-//on property:sys.usb.config=mass_storage,rndis,adb
-//    write /sys/module/g_android/parameters/product_id 1364
-//    start adbd
-//    setprop sys.usb.state $sys.usb.config
-
 service hciattach /system/bin/hciattach -n /dev/ttyHS0 texas 3000000
     class main
     user bluetooth

@@ -7,9 +7,9 @@ export DEVICE_PATH=$CM_PATH/device/semc/mogami-common/modules
 export KERNEL=$CM_PATH/kernel
 export CROSS_COMPILER=$CM_PATH/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
-cd $CM_PATH
-git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
-mv semc-kernel-msm7x30-ics kernel
+#cd $CM_PATH
+#git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
+#mv semc-kernel-msm7x30-ics kernel
 
 cd $TI12XX_ROOT
 git clone git://github.com/TI-OpenLink/compat
@@ -37,7 +37,7 @@ patch -p1 < $CM_DEVICE/wl12xx/patches/compat-wireless.09.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/semc_2.6.32.patch
 
 cd compat-wireless
-make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24
+make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j12
 
 cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/compat/compat.ko $CM_DEVICE/wl12xx/modules
 cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/compat/compat_firmware_class.ko $CM_DEVICE/wl12xx/modules
@@ -48,4 +48,4 @@ cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/net/wireless/cfg80211.ko $CM_DEVI
 
 cp $CM_PATH/hardware/ti/wl12xx/ti-utils/firmwarewl12xx* $CM_DEVICE/wl12xx/firmware
 
-make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24 clean
+make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j12 clean
