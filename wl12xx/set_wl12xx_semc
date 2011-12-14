@@ -8,9 +8,10 @@ export KERNEL=$CM_PATH/kernel
 export CROSS_COMPILER=$CM_PATH/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
 #cd $CM_PATH
-#git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
-#mv semc-kernel-msm7x30-ics kernel
+git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
+mv semc-kernel-msm7x30-ics kernel
 
+mkdir $TI12XX_ROOT
 cd $TI12XX_ROOT
 git clone git://github.com/TI-OpenLink/compat
 git clone git://github.com/TI-OpenLink/compat-wireless
@@ -19,7 +20,7 @@ git clone git://github.com/TI-OpenLink/iw
 git clone git://github.com/TI-OpenLink/libnl
 git clone git://github.com/TI-OpenLink/wl12xx
 
-cd wl12xx
+cd $TI12XX_ROOT/wl12xx
 git reset --hard RLS_R4_10
 cd ..
 cd ti-utils
@@ -33,11 +34,12 @@ rm ./patches/35-fix-makefile-includes.patch
 rm ./patches/40-netdev-hw-features.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/compat-wireless.09.patch
 ./scripts/admin-refresh.sh
-./scripts/driver-select wl1271
+./scripts/driver-select wl12xx
 patch -p1 < $CM_DEVICE/wl12xx/patches/semc_2.6.32.patch
+cd ..
 
 cd compat-wireless
-make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j12
+make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24
 
 cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/compat/compat.ko $CM_DEVICE/wl12xx/modules
 cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/compat/compat_firmware_class.ko $CM_DEVICE/wl12xx/modules
@@ -48,4 +50,4 @@ cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/net/wireless/cfg80211.ko $CM_DEVI
 
 cp $CM_PATH/hardware/ti/wl12xx/ti-utils/firmwarewl12xx* $CM_DEVICE/wl12xx/firmware
 
-make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j12 clean
+make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24 clean

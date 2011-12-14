@@ -416,3 +416,58 @@ diff -crB compat-wireless/drivers/net/wireless/wl12xx/sdio.c compat-wireless.sem
   
   	return ret;
   }
+diff -rupN compat-wireless/include/linux/compat-2.6.35.h compat-wireless.semc/include/linux/compat-2.6.35.h
+--- compat-wireless/include/linux/compat-2.6.35.h	2011-12-14 09:03:41.311501001 +0200
++++ compat-wireless.semc/include/linux/compat-2.6.35.h	2011-12-14 09:12:43.000000000 +0200
+@@ -25,9 +25,9 @@ static inline wait_queue_head_t *sk_slee
+ }
+ 
+ #define sdio_writeb_readb(func, write_byte, addr, err_ret) sdio_readb(func, addr, err_ret)
+-
++/*
+ int hex_to_bin(char ch);
+-
++*/
+ extern loff_t noop_llseek(struct file *file, loff_t offset, int origin);
+ 
+ #define pm_qos_request(_qos) pm_qos_requirement(_qos)
+diff -rupN compat-wireless/include/linux/compat-3.0.h compat-wireless.semc/include/linux/compat-3.0.h
+--- compat-wireless/include/linux/compat-3.0.h	2011-12-14 09:03:41.311501001 +0200
++++ compat-wireless.semc/include/linux/compat-3.0.h	2011-12-14 09:11:11.000000000 +0200
+@@ -58,7 +58,7 @@ int __must_check kstrtou16_from_user(con
+ int __must_check kstrtos16_from_user(const char __user *s, size_t count, unsigned int base, s16 *res);
+ int __must_check kstrtou8_from_user(const char __user *s, size_t count, unsigned int base, u8 *res);
+ int __must_check kstrtos8_from_user(const char __user *s, size_t count, unsigned int base, s8 *res);
+-
++/*
+ static inline int __must_check kstrtou64_from_user(const char __user *s, size_t count, unsigned int base, u64 *res)
+ {
+ 	return kstrtoull_from_user(s, count, base, res);
+@@ -78,7 +78,7 @@ static inline int __must_check kstrtos32
+ {
+ 	return kstrtoint_from_user(s, count, base, res);
+ }
+-
++*/
+ #endif /* (LINUX_VERSION_CODE < KERNEL_VERSION(3,0,0)) */
+ 
+ #endif /* LINUX_3_0_COMPAT_H */
+diff -rupN compat-wireless/compat/compat-2.6.35.c compat-wireless.semc/compat/compat-2.6.35.c
+--- compat-wireless/compat/compat-2.6.35.c	2011-12-14 09:18:39.881501000 +0200
++++ compat-wireless.semc/compat/compat-2.6.35.c	2011-12-14 09:17:53.771500894 +0200
+@@ -18,6 +18,7 @@
+  * hex_to_bin() converts one hex digit to its actual value or -1 in case of bad
+  * input.
+  */
++/*
+ int hex_to_bin(char ch)
+ {
+ 	if ((ch >= '0') && (ch <= '9'))
+@@ -28,6 +29,7 @@ int hex_to_bin(char ch)
+ 	return -1;
+ }
+ EXPORT_SYMBOL(hex_to_bin);
++*/
+ 
+ /**
+  * noop_llseek - No Operation Performed llseek implementation
