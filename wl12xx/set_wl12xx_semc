@@ -8,8 +8,8 @@ export KERNEL=$CM_PATH/kernel
 export CROSS_COMPILER=$CM_PATH/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
 #cd $CM_PATH
-git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
-mv semc-kernel-msm7x30-ics kernel
+#git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
+#mv semc-kernel-msm7x30-ics kernel
 
 mkdir $TI12XX_ROOT
 cd $TI12XX_ROOT

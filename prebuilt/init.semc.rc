@@ -2,54 +2,38 @@ import init.semc.usb.rc
 
 on early-boot
     #Run pre_hw_config.sh before entering charge only mode.
-    exec /sbin/sh /system/etc/pre_hw_config.sh
+#    exec /sbin/sh /system/etc/pre_hw_config.sh
     # Boot into recovery
     exec /sbin/bootrec
 
-on early-init
-    export EXTERNAL_STORAGE /mnt/sdcard
-    mkdir /mnt/sdcard 0000 system system
-    # for backwards compatibility
-    symlink /mnt/sdcard /sdcard
 
 on post-fs-data
-    # we will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0775 media_rw media_rw
-    chown media_rw media_rw /data/media
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     chmod 0660 /data/misc/wifi/wpa_supplicant.conf
     chown wifi.wifi /data/misc/wifi/wpa_supplicant.conf
-
-
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
     setprop vold.post_fs_data_done 1
 
-on init
-    write /sys/module/g_android/parameters $ro.serialno
-    write /sys/module/g_android/parameters/product_id 1351
-    write /sys/devices/platform/android_usb/functions/cur_pid 1351
-    write /sys/devices/platform/android_usb/functions/enable_switch 0
+on fs
+# mount mtd partitions
+    # Mount /system rw first to give the filesystem a chance to save a checkpoint
+    mount yaffs2 mtd@system /system
+    mount yaffs2 mtd@system /system ro remount
+    mount yaffs2 mtd@userdata /data nosuid nodev
+    mount yaffs2 mtd@cache /cache nosuid nodev
 
+#on early-init
+#    export ANDROID_CACHE /cache
+    export EXTERNAL_STORAGE /mnt/sdcard
+    mkdir /mnt/sdcard 0000 system system
+    # for backwards compatibility
+    symlink /mnt/sdcard /sdcard
 
 on boot
-
-
-# change permissions for mtd device
-    chmod 0660 /dev/mtd/mtd0
-    chown media media /dev/mtd/mtd0
-
-# change permissions for i2c-2 device
-    chmod 0660 /dev/i2c-2
-    chown media media /dev/i2c-2
-
-# change permissions for Tiler driver
-    chmod 0777 /dev/tiler
-    chmod 0777 /dev/dmm
-
-#radio fix
+    #radio fix
     mkdir /data/radio 0775 radio radio
     mkdir /data/radio/log 0775 radio radio
 
@@ -58,8 +42,6 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660                /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /dev/ttyHS0
-    chmod 0660 /dev/ttyHS0
     chown system system /sys/module/sco/parameters/disable_esco
 
     # Permissions for Liblights.
@@ -74,21 +56,6 @@ on boot
     chown system system /sys/class/leds/lcd-backlight/als/curve
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown media media /sys/class/leds/tally-light/brightness
-
-    # Fix permissions for KGSL
-    chmod 0666                /dev/kgsl-2d0
-    chmod 0666                /dev/kgsl-3d0
-
-    # Fix permissions for Audio
-    chmod 0666       /dev/snd/timer
-    chmod 0666       /dev/snd/controlC0
-    chmod 0666       /dev/snd/pcmC0D0c
-    chmod 0666       /dev/snd/pcmC0D0p
-    chmod 0666       /dev/msm_aac_in
-    chmod 0666       /dev/msm_amrnb_in
-    chmod 0666       /dev/msm_fm
-
-    chmod 0666 /dev/mtp
 
     # LM35xx/cameralight
     chown system system /sys/devices/i2c-0/0-0053/torch_enable
@@ -108,6 +75,8 @@ on boot
     chmod 0666 /sys/devices/i2c-0/0-0053/cm_torch
     chmod 0666 /sys/devices/i2c-0/0-0040/leds/torch/brightness
     chmod 0666 /sys/class/leds/torch/max_current
+    chmod 0666 /sys/class/leds/torch/torch_enable
+    chmod 0666 /sys/class/leds/torch/torch_current
 
     # Owner for the proximity sensor
     chown system system /sys/devices/i2c-0/0-0054/threshold
@@ -118,11 +87,6 @@ on boot
 
     chmod 0666 /sys/devices/i2c-0/0-0054/nburst
     chmod 0666 /sys/class/leds/lcd-backlight/als/enable
-
-    # Change rights for the AKM8975 devices
-    chmod 0644 /dev/akm8975_dev
-    chown compass system /dev/akm8975_dev
-
 
     #load new wl1271 modules
     insmod /modules/compat.ko
@@ -145,9 +109,15 @@ service hciattach /system/bin/hciattach -n /dev/ttyHS0 texas 3000000
 # create virtual SD card at /mnt/sdcard, based on the /data/media directory
 # daemon will drop to user/group system/media_rw after initializing
 # underlying files in /data/media will be created with user and group media_rw (1023)
-service sdcard /system/bin/sdcard /data/media 1023 1023
-	class late_start
+#service sdcard /system/bin/sdcard /data/media 1023 1023
+#    class late_start
 
+service console /sbin/sh
+    class core
+    console
+    disabled
+    user shell
+    group log
 
 service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0
     # -puse_p2p_group_interface=1 -c/data/misc/wifi/wpa_supplicant.conf
@@ -189,7 +159,6 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
-
 
 service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0 &
     class main
