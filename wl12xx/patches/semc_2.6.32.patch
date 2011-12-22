@@ -431,27 +431,7 @@ diff -rupN compat-wireless/include/linux/compat-2.6.35.h compat-wireless.semc/in
  extern loff_t noop_llseek(struct file *file, loff_t offset, int origin);
  
  #define pm_qos_request(_qos) pm_qos_requirement(_qos)
-diff -rupN compat-wireless/include/linux/compat-3.0.h compat-wireless.semc/include/linux/compat-3.0.h
---- compat-wireless/include/linux/compat-3.0.h	2011-12-14 09:03:41.311501001 +0200
-+++ compat-wireless.semc/include/linux/compat-3.0.h	2011-12-14 09:11:11.000000000 +0200
-@@ -58,7 +58,7 @@ int __must_check kstrtou16_from_user(con
- int __must_check kstrtos16_from_user(const char __user *s, size_t count, unsigned int base, s16 *res);
- int __must_check kstrtou8_from_user(const char __user *s, size_t count, unsigned int base, u8 *res);
- int __must_check kstrtos8_from_user(const char __user *s, size_t count, unsigned int base, s8 *res);
--
-+/*
- static inline int __must_check kstrtou64_from_user(const char __user *s, size_t count, unsigned int base, u64 *res)
- {
- 	return kstrtoull_from_user(s, count, base, res);
-@@ -78,7 +78,7 @@ static inline int __must_check kstrtos32
- {
- 	return kstrtoint_from_user(s, count, base, res);
- }
--
-+*/
- #endif /* (LINUX_VERSION_CODE < KERNEL_VERSION(3,0,0)) */
- 
- #endif /* LINUX_3_0_COMPAT_H */
+
 diff -rupN compat-wireless/compat/compat-2.6.35.c compat-wireless.semc/compat/compat-2.6.35.c
 --- compat-wireless/compat/compat-2.6.35.c	2011-12-14 09:18:39.881501000 +0200
 +++ compat-wireless.semc/compat/compat-2.6.35.c	2011-12-14 09:17:53.771500894 +0200
