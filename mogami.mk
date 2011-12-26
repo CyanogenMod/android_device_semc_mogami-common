@@ -20,8 +20,8 @@ PRODUCT_PACKAGES += \
 
 # Init files
 PRODUCT_COPY_FILES += \
-    device/semc/mogami-common/prebuilt/ueventd.mogami.rc:root/ueventd.mogami.rc \
-    device/semc/mogami-common/prebuilt/init.mogami.rc:root/init.semc.rc
+    device/semc/mogami-common/prebuilt/ueventd.semc.rc:root/ueventd.semc.rc \
+    device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
