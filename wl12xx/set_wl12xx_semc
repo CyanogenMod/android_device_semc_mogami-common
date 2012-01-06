@@ -40,7 +40,7 @@ patch -p1 < $CM_DEVICE/wl12xx/patches/quirk.patch
 cd ..
 
 cd compat-wireless
-make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER
+make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24
 
 cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/compat/compat.ko $CM_DEVICE/wl12xx/modules
 cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/compat/compat_firmware_class.ko $CM_DEVICE/wl12xx/modules
@@ -51,4 +51,4 @@ cp $CM_PATH/hardware/ti/wl12xx/compat-wireless/net/wireless/cfg80211.ko $CM_DEVI
 
 cp $CM_PATH/hardware/ti/wl12xx/ti-utils/firmwarewl12xx* $CM_DEVICE/wl12xx/firmware
 
-make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER  clean
+make KLIB=$KERNEL KLIB_BUILD=$KERNEL ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24 clean

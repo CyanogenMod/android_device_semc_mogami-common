@@ -4,7 +4,6 @@
 /dev/msm_vidc_reg        0660   system  audio
 /dev/gemini0             0660   system  system
 /dev/msm_vpe             0660   system  system
-/dev/pmem_swiqi          0660   system  graphics
 /dev/bma250              0640   compass system
 /dev/msm_aac*            0660   system  audio
 /dev/usb_accessory       0660   root    usb
@@ -15,6 +14,7 @@
 /dev/dmm                 0777   system  system
 /dev/kgsl-2d0            0666   system  graphics
 /dev/kgsl-3d0            0666   system  graphics
+/dev/genlock             0666   system  graphics
 /dev/snd/timer           0666   audio   audio
 /dev/snd/controlC0       0666   audio   audio
 /dev/snd/pcmC0D0c        0666   audio   audio
@@ -35,7 +35,7 @@
 /dev/oncrpc/3000001b:*   0660   radio   radio
 /dev/oncrpc/3000006b:*   0660   radio   system
 /dev/ttyHS0              0660   bluetooth bluetooth
-/sys/devices/virtual/usb_composite/*   enable      0664  root   system
+/sys/devices/platform/msm_hsusb_host.0/usb* uevent 0660 root usb
 /sys/devices/virtual/input/input*   enable      0660  root   input
 /sys/devices/virtual/input/input*   poll_delay  0660  root   input
 /sys/devices/virtual/input/input*   bma250_rate        0640  system   system

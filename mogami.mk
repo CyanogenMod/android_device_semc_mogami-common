@@ -21,10 +21,7 @@
 PRODUCT_COPY_FILES += \
     device/semc/mogami-common/prebuilt/ueventd.semc.rc:root/ueventd.semc.rc \
     device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc \
-    device/semc/mogami-common/prebuilt/init.semc.usb.rc:root/init.semc.usb.rc
-
-#    device/semc/mogami-common/prebuilt/init.semc.usb.rc:root/init.semc.usb.rc \
-#    device/semc/mogami-common/prebuilt/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/semc/mogami-common/prebuilt/init.semc.usb.rc:root/init.semc.usb.rc 
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
@@ -40,5 +37,6 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/wl12xx/firmware/wl1271-fw-multirole-roc.bin:system/etc/firmware/wl1271-fw-multirole-roc.bin \
     device/semc/mogami-common/wl12xx/firmware/wl1271-nvs.bin:system/etc/firmware/wl1271-nvs.bin
 
-#PRODUCT_PACKAGES += \
-#    hostap
+PRODUCT_PACKAGES += \
+    hostapd_cli \
+    hostapd
