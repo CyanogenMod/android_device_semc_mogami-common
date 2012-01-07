@@ -30,4 +30,6 @@ BOARD_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth
 BOARD_OVERLAY_FORMAT_YCrCb_420_SP := true
 BOARD_CAMERA_USE_GETBUFFERINFO := true
 
+BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH := true
+
 -include device/semc/msm7x30-common/Android.mk
