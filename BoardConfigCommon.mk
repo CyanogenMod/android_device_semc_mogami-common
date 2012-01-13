@@ -24,11 +24,11 @@ BOARD_WLAN_DEVICE := wl12xx_mac80211
 #BOARD_SOFTAP_DEVICE := wl12xx_mac80211
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 
+BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH := true
 #BOARD_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
 
 BOARD_OVERLAY_FORMAT_YCrCb_420_SP := true
 BOARD_CAMERA_USE_GETBUFFERINFO := true
 
-BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH := true
 
 -include device/semc/msm7x30-common/Android.mk
