@@ -180,3 +180,7 @@ service hw_config /sbin/sh /system/etc/hw_config.sh
     user root
     oneshot
 
+# DRM key activation
+service suntrolkac /system/bin/suntrolkac
+    user root
+    oneshot

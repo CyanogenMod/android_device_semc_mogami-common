@@ -13,7 +13,7 @@
 # limitations under the License.
 -include device/semc/msm7x30-common/BoardConfigCommon.mk
 
-TARGET_BOOTLOADER_BOARD_NAME := semc
+TARGET_BOOTLOADER_BOARD_NAME := mogami
 
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 WPA_SUPPLICANT_VERSION := VER_0_8_X
