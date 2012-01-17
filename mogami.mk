@@ -38,3 +38,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     hostapd_cli \
     hostapd
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0
