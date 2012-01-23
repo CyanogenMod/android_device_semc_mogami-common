@@ -1,8 +1,12 @@
 on early-boot
     #Run pre_hw_config.sh before entering charge only mode.
     exec /sbin/sh /system/etc/pre_hw_config.sh
+
     # Boot into recovery
     exec /sbin/bootrec
+
+    # Start touch firmware loader
+    exec /system/bin/cy8ctma300_fwloader -dev /sys/devices/platform/spi_qsd.0/spi0.0 -no_condition
 
 on boot
     # QMUD / QMI keeps its sockets in here
@@ -30,8 +34,6 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
     chmod 0660                /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /dev/ttyHS0
-    chmod 0660 /dev/ttyHS0
     chown system system /sys/module/sco/parameters/disable_esco
 
     # bluetooth MAC address programming
@@ -50,10 +52,11 @@ on boot
     chown system system /sys/class/leds/lcd-backlight/als/curve
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown media media /sys/class/leds/tally-light/brightness
+    chown system system /sys/class/leds/button-backlight-rgb1/brightness
+    chown system system /sys/class/leds/button-backlight-rgb2/brightness
 
-    # Change rights for the AKM8975 devices
-    chmod 0644 /dev/akm8975_dev
-    chown compass system /dev/akm8975_dev
+    chown system system /sys/kernel/hdmi_sii_kset/hdmi_sii_kobj/hdmi_sii_state_obj
+    chmod 0600 /sys/kernel/hdmi_sii_kset/hdmi_sii_kobj/hdmi_sii_state_obj
 
     # enable the GPS
     setprop ro.ril.def.agps.mode 2
@@ -62,30 +65,6 @@ on boot
     write /sys/block/mtdblock1/bdi/read_ahead_kb 4
     write /sys/block/mtdblock2/bdi/read_ahead_kb 4
     write /sys/block/mtdblock3/bdi/read_ahead_kb 4
-
-    # Wakelock debug
-    write /sys/module/wakelock/parameters/debug_mask 7
-
-#    # Better power-management
-#    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-#    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/up_threshold 90
-#    write /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate 75000
-#    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 245760
-
-    # Fix permissions for KGSL
-    chmod 0666                /dev/kgsl-2d0
-    chmod 0666                /dev/kgsl-3d0
-
-    # Fix permissions for Audio
-    chmod 0666       /dev/snd/timer
-    chmod 0666       /dev/snd/controlC0
-    chmod 0666       /dev/snd/pcmC0D0c
-    chmod 0666       /dev/snd/pcmC0D0p
-    chmod 0666       /dev/msm_aac_in
-    chmod 0666       /dev/msm_amrnb_in
-    chmod 0666       /dev/msm_fm
-
-    chmod 0666 /dev/mtp
 
     # LM35xx/cameralight
     chown system system /sys/devices/i2c-0/0-0053/torch_enable
@@ -168,22 +147,8 @@ service qmuxd /system/bin/qmuxd
 service akmd8975 /system/bin/akmd8975
 
 service hw_config /sbin/sh /system/etc/hw_config.sh
-	user root
-	oneshot
-
-on early-boot
-    # Start touch firmware loader
-    exec /system/bin/cy8ctma300_fwloader -dev /sys/devices/platform/spi_qsd.0/spi0.0 -no_condition
-
-on boot
-    chown system system /sys/kernel/hdmi_sii_kset/hdmi_sii_kobj/hdmi_sii_state_obj
-    chmod 0600 /sys/kernel/hdmi_sii_kset/hdmi_sii_kobj/hdmi_sii_state_obj
-
-    chown system system /dev/i2c-0
-    chown system system /dev/uio0
-    chown system system /sys/class/leds/button-backlight-rgb1/brightness
-    chown system system /sys/class/leds/button-backlight-rgb2/brightness
-
+    user root
+    oneshot
 
 # Net mgr
 service netmgrd /system/bin/netmgrd -E
@@ -209,3 +174,8 @@ service touchd /system/bin/touchd
     user root
 
 service slidercounter /system/bin/slidercounter keypad-mango
+
+# DRM key activation
+service suntrolkac /system/bin/suntrolkac
+    user root
+    oneshot
