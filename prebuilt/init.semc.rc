@@ -32,9 +32,6 @@ on early-init
     symlink /mnt/sdcard /sdcard
 
 on boot
-#    #run /etc/init.d/*
-#    /system/bin/logwrapper /sbin/busybox run-parts /system/etc/init.d
-
     #radio fix
     mkdir /data/radio 0775 radio radio
     mkdir /data/radio/log 0775 radio radio
@@ -161,12 +158,12 @@ service iprenew_bnep0 /system/bin/dhcpcd -n
     oneshot
 
 service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0 &
-#    class main
+    class main
     disabled
     oneshot
 
 service qmuxd /system/bin/qmuxd
-#    class main
+    class main
 
 service akmd8975 /system/bin/akmd8975
     class main
@@ -180,7 +177,3 @@ service hw_config /sbin/sh /system/etc/hw_config.sh
     user root
     oneshot
 
-# DRM key activation
-service suntrolkac /system/bin/suntrolkac
-    user root
-    oneshot

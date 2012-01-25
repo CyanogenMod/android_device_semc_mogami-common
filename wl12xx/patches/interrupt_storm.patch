@@ -1,0 +1,45 @@
+diff -ur wl12xx/drivers/net/wireless/wl12xx/main.c wl12xx.semc//drivers/net/wireless/wl12xx/main.c
+--- wl12xx/drivers/net/wireless/wl12xx/main.c	2012-01-23 14:47:56.000000000 +0200
++++ wl12xx.semc//drivers/net/wireless/wl12xx/main.c	2012-01-23 14:58:23.000000000 +0200
+@@ -1484,13 +1484,17 @@
+ 		goto out;
+ 	}
+ 
++       mutex_unlock(&wl->mutex);
++       wl1271_disable_interrupts(wl);
++       mutex_lock(&wl->mutex);
++
+ 	wl1271_power_off(wl);
+ 
+ 	wl->state = WL1271_STATE_OFF;
+ 	wl->rx_counter = 0;
+ 
+ 	mutex_unlock(&wl->mutex);
+-	wl1271_disable_interrupts(wl);
++
+ 	wl1271_flush_deferred_work(wl);
+ 	cancel_work_sync(&wl->netstack_work);
+ 	cancel_work_sync(&wl->recovery_work);
+@@ -2069,11 +2073,21 @@
+ 	 * this must be before the cancel_work calls below, so that the work
+ 	 * functions don't perform further work.
+ 	 */
+-	wl->state = WL1271_STATE_OFF;
+ 
+ 	mutex_unlock(&wl->mutex);
+ 
++	/*
++	* Interrupts must be disabled before setting the state to OFF.
++	* Otherwise, the interrupt handler might be called and exit without
++	* reading the interrupt status.
++	*/
++
+ 	wl1271_disable_interrupts(wl);
++
++	mutex_lock(&wl->mutex);
++	wl->state = WL1271_STATE_OFF;
++	mutex_unlock(&wl->mutex);
++
+ 	wl1271_flush_deferred_work(wl);
+ 	cancel_delayed_work_sync(&wl->scan_complete_work);
+ 	cancel_work_sync(&wl->netstack_work);
