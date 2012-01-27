@@ -37,6 +37,7 @@ patch -p1 < $CM_DEVICE/wl12xx/patches/compat-wireless.09.patch
 ./scripts/driver-select wl12xx
 patch -p1 < $CM_DEVICE/wl12xx/patches/semc_2.6.32.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/quirk.patch
+patch -p1 < $CM_DEVICE/wl12xx/patches/sdio.patch
 cd ..
 
 cd compat-wireless
