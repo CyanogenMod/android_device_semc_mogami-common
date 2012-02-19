@@ -1,0 +1,10 @@
+Change-Id: I05979db6ba9dde64a5fc7f66658aa9b6ad5adeac
+Code-Review+1: Pedro Veloso <pedronveloso@androidpt.com>
+Code-Review+2: Jerpelea <jerpelea@gmail.com>
+Verified+1: Jerpelea <jerpelea@gmail.com>
+Code-Review+1: Andreas Makris <andreas.makris@googlemail.com>
+Submitted-by: Jerpelea <jerpelea@gmail.com>
+Submitted-at: Sun, 19 Feb 2012 06:43:47 +0300
+Reviewed-on: http://review.cyanogenmod.com/12506
+Project: CyanogenMod/android_device_semc_mogami-common
+Branch: refs/heads/gingerbread
