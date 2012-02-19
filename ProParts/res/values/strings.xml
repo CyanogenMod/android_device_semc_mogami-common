@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProParts</string>
+
+    <!-- alerts and errors -->
+    <string name="warning">Warning</string>
+    <string name="caution_keyboard_layout">By changing the Keyboard layout some keys might stop working, be sure to change to the correct layout only! Are you sure you want to continue?</string>
+
+    <!--preferences -->
+    <string name="keyboard_language_title">Keyboard layout</string>
+    <string name="keyboard_language_summary">Alter physical keyboard language layout</string>
+    <string name="general_settings_title">General Settings</string>
+
+    <!-- keyboard layouts -->
+    <string name="kbl_ar">AR</string>
+    <string name="kbl_aro">ARO</string>
+    <string name="kbl_at">AT</string>
+    <string name="kbl_bal">BAL</string>
+    <string name="kbl_be">BE</string>
+    <string name="kbl_ce1">CE 1</string>
+    <string name="kbl_ce2">CE 2</string>
+    <string name="kbl_ce3">CE 3</string>
+    <string name="kbl_ch">CH</string>
+    <string name="kbl_cht_tw">CHT-TW</string>
+    <string name="kbl_cn">CN</string>
+    <string name="kbl_cz">CZ</string>
+    <string name="kbl_de">DE</string>
+    <string name="kbl_dk">DK</string>
+    <string name="kbl_es">ES</string>
+    <string name="kbl_fr">FR</string>
+    <string name="kbl_gba">GBA</string>
+    <string name="kbl_gr">GR</string>
+    <string name="kbl_hk">HK</string>
+    <string name="kbl_hr">HR</string>
+    <string name="kbl_hu">HU</string>
+    <string name="kbl_ibe">IBE</string>
+    <string name="kbl_ie">IE</string>
+    <string name="kbl_in">IN</string>
+    <string name="kbl_it">IT</string>
+    <string name="kbl_mea">MEA</string>
+    <string name="kbl_mel">MEL</string>
+    <string name="kbl_my">MY</string>
+    <string name="kbl_ng1">NG 1</string>
+    <string name="kbl_ng2">NG 2</string>
+    <string name="kbl_nl">NL</string>
+    <string name="kbl_no">NO</string>
+    <string name="kbl_nz">NZ</string>
+    <string name="kbl_ph">PH</string>
+    <string name="kbl_pl">PL</string>
+    <string name="kbl_pt">PT</string>
+    <string name="kbl_ro">RO</string>
+    <string name="kbl_ru">RU</string>
+    <string name="kbl_sa">SA</string>
+    <string name="kbl_se">SE</string>
+    <string name="kbl_sg">SG</string>
+    <string name="kbl_si">SI</string>
+    <string name="kbl_sk">SK</string>
+    <string name="kbl_th">TH</string>
+    <string name="kbl_tr">TR</string>
+    <string name="kbl_tw">TW</string>
+    <string name="kbl_ua">UA</string>
+    <string name="kbl_uk">UK</string>
+
+</resources>
