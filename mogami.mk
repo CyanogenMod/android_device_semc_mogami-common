@@ -16,7 +16,14 @@
 -include device/semc/msm7x30-common/msm7x30.mk
 
 PRODUCT_PACKAGES += \
-    hostap
+    hostap \
+    Fmapplication \
+    fmapp \
+    libfm_stack \
+    fmreceiverif \
+    com.ti.fm.fmreceiverif.xml \
+    FmRxService \
+    libfmrx
 
 # Init files
 PRODUCT_COPY_FILES += \
