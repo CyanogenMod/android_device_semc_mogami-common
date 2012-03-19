@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProParts</string>
+
+    <!-- alerts and errors -->
+    <string name="warning">Warning</string>
+    <string name="caution_keyboard_layout">By changing the Keyboard layout some keys might stop working, be sure to change to the correct layout only! Are you sure you want to continue?</string>
+
+    <!--preferences -->
+    <string name="keyboard_language_title">Keyboard layout</string>
+    <string name="keyboard_language_summary">Alter physical keyboard language layout</string>
+    <string name="general_settings_title">General Settings</string>
+
+    <!-- keyboard layouts -->
+    <string name="kbl_qwertz">QWERTZ</string>
+    <string name="kbl_qwerty">QWERTY</string>
+    <string name="kbl_qwertyPT">QWERTY-Portuguese/Catalan</string>
+    <string name="kbl_qwertyDA">QWERTY-Danish/Norwegian</string>
+    <string name="kbl_qwertySV">QWERTY-Swedish/Finnish</string>
+    <string name="kbl_azerty">AZERTY</string>
+
+
+</resources>
