@@ -1,0 +1,24 @@
+<resources>
+    <string-array name="keyboard_layout_array">
+        <item>@string/kbl_qwertz</item>
+		<item>@string/kbl_qwerty</item>
+		<item>@string/kbl_qwertyPT</item>
+		<item>@string/kbl_qwertyDA</item>
+		<item>@string/kbl_qwertySV</item>
+		<item>@string/kbl_azerty</item>
+ 
+    </string-array>
+
+
+    <string-array name="keyboard_layout_array_values">
+            <item>QWERTZ</item>
+            <item>QWERTY</item>
+            <item>QWERTYPT</item>
+            <item>QWERTYDA</item>
+            <item>QWERTYSV</item>
+            <item>AZERTY</item>
+
+        </string-array>
+
+
+</resources>
