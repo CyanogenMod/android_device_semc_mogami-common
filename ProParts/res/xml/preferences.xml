@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+     android:title="@string/general_settings_title">
+
+    <ListPreference android:key="keyboard_layout"
+        android:title="@string/keyboard_language_title"
+        android:summary="@string/keyboard_language_summary"
+        android:entries="@array/keyboard_layout_array"
+        android:entryValues="@array/keyboard_layout_array_values" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
