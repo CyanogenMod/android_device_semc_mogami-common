@@ -1,11 +1,11 @@
 import init.semc.usb.rc
+import init.semc.keyboard.rc
 
 on early-boot
     #Run pre_hw_config.sh before entering charge only mode.
     exec /sbin/sh /system/etc/pre_hw_config.sh
     # Boot into recovery
     exec /sbin/bootrec
-
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
