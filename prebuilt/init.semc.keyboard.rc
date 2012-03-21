@@ -1,0 +1,3 @@
+on post-data-fs 
+# Check for keyboard
+exec /sbin/keyswap
