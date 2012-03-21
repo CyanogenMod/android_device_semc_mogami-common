@@ -5,6 +5,8 @@ on early-boot
     exec /sbin/sh /system/etc/pre_hw_config.sh
     # Boot into recovery
     exec /sbin/bootrec
+	# Check for keyboard
+	exec /sbin/keyswap
 
 
 on post-fs-data
