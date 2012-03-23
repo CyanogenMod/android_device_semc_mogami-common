@@ -18,4 +18,6 @@
     <string name="kbl_qwertyDA">QWERTY-Danish/Norwegian</string>
     <string name="kbl_qwertySV">QWERTY-Swedish/Finnish</string>
     <string name="kbl_azerty">AZERTY</string>
+	<string name="kbl_greek">GREEK</string>
+	<string name="kbl_cyrillic">CYRILLIC</string>
 </resources>
