@@ -1,4 +1,4 @@
-package com.cyanogenmod.ProParts;
+package com.cyanogenmod.settings.device;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +16,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 
-public class ProParts extends PreferenceActivity implements
+public class DeviceSettings extends PreferenceActivity implements
 		Preference.OnPreferenceChangeListener {
 	private static final String PREFERENCE_KEYBOARD_LAYOUT = "keyboard_layout";
 	private static final int COPY_FILE_BUFFER_SIZE = 1024;
