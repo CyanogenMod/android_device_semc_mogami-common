@@ -35,9 +35,9 @@ rm ./patches/40-netdev-hw-features.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/compat-wireless.09.patch
 ./scripts/admin-refresh.sh
 ./scripts/driver-select wl12xx
-patch -p1 < $CM_DEVICE/wl12xx/patches/semc_2.6.32.patch
-patch -p1 < $CM_DEVICE/wl12xx/patches/quirk.patch
-patch -p1 < $CM_DEVICE/wl12xx/patches/sdio.patch
+patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.C.0.6.patch
+patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.C.0.7.patch
+patch -p1 < $CM_DEVICE/wl12xx/patches/firmware.patch
 cd ..
 
 cd compat-wireless
