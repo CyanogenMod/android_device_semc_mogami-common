@@ -11,7 +11,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.PowerManager;
+import android.os.SystemProperties;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -22,7 +22,7 @@ public class ProParts extends PreferenceActivity implements
 	private static final int COPY_FILE_BUFFER_SIZE = 1024;
 
 	private static final String DATA_PREFIX = "/data/data/";
-	private static final String KEYBOARD_TRIGGER_FILE = "newKeyboard";
+	private static final String KEYBOARD_TRIGGER_PROPERTY = "sys.keyboard.change";
 	private static final String KEYBOARD_KCM_FILE = "pm8058-keypad.kcm";
 	private static final String KEYBOARD_KL_FILE = "pm8058-keypad.kl";
 
@@ -94,12 +94,6 @@ public class ProParts extends PreferenceActivity implements
 		copyAsset(keyboardKcm, KEYBOARD_KCM_FILE);
 		copyAsset(keyboardKl, KEYBOARD_KL_FILE);
 
-		File f = new File(getDataDir(), KEYBOARD_TRIGGER_FILE);
-		try {
-			f.createNewFile();
-		} catch (IOException e) {}
-
-		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-		pm.reboot("");
+		SystemProperties.set(KEYBOARD_TRIGGER_PROPERTY, "true");
 	}
 }

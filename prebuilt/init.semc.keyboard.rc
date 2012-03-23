@@ -1,3 +1,2 @@
-on post-fs-data
-    # Check for keyboard layout changes
+on property:sys.keyboard.change=true
     exec /sbin/keyswap
