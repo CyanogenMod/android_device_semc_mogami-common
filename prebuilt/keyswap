@@ -12,8 +12,8 @@ chown 0:0 /system/usr/keylayout/pm8058-keypad.kl
 chmod 644 /system/usr/keylayout/pm8058-keypad.kl
 
 #cleanup
-rm /data/data/com.cyanogenmod.ProParts/pm8058-keypad.kcm
-rm /data/data/com.cyanogenmod.ProParts/pm8058-keypad.kl
+rm /data/data/com.cyanogenmod.settings.device/pm8058-keypad.kcm
+rm /data/data/com.cyanogenmod.settings.device/pm8058-keypad.kl
 
 sync
 /system/bin/setprop sys.keyboard.change false
