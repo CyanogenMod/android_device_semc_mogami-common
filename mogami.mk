@@ -39,5 +39,15 @@ PRODUCT_PACKAGES += \
     hostapd_cli \
     hostapd
 
+PRODUCT_PACKAGES += \
+    hostap \
+    Fmapplication \
+    fmapp \
+    libfm_stack \
+    fmreceiverif \
+    com.ti.fm.fmreceiverif.xml \
+    FmRxService \
+    libfmrx
+
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
