@@ -4,10 +4,10 @@
 mount -o remount,rw /system
 
 #copy new keyboard and adapt permissions
-cp /data/data/com.cyanogenmod.ProParts/pm8058-keypad.kcm /system/usr/keychars/pm8058-keypad.kcm
+cp /data/data/com.cyanogenmod.settings.device/pm8058-keypad.kcm /system/usr/keychars/pm8058-keypad.kcm
 chown 0:0 /system/usr/keychars/pm8058-keypad.kcm
 chmod 644 /system/usr/keychars/pm8058-keypad.kcm
-cp /data/data/com.cyanogenmod.ProParts/pm8058-keypad.kl /system/usr/keylayout/pm8058-keypad.kl
+cp /data/data/com.cyanogenmod.settings.device/pm8058-keypad.kl /system/usr/keylayout/pm8058-keypad.kl
 chown 0:0 /system/usr/keylayout/pm8058-keypad.kl
 chmod 644 /system/usr/keylayout/pm8058-keypad.kl
 
