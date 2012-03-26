@@ -40,7 +40,6 @@ PRODUCT_PACKAGES += \
     hostapd
 
 PRODUCT_PACKAGES += \
-    hostap \
     Fmapplication \
     fmapp \
     libfm_stack \
