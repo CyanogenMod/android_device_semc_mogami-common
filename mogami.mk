@@ -36,6 +36,7 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/wl12xx/firmware/wl1271-nvs.bin:system/etc/firmware/wl1271-nvs.bin
 
 PRODUCT_PACKAGES += \
+    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
     hostapd_cli \
     hostapd
 
