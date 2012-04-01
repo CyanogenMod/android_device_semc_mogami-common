@@ -23,6 +23,7 @@ PRODUCT_COPY_FILES += \
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
+    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
     device/semc/mogami-common/wl12xx/modules/compat.ko:root/modules/compat.ko \
     device/semc/mogami-common/wl12xx/modules/compat_firmware_class.ko:root/modules/compat_firmware_class.ko \
     device/semc/mogami-common/wl12xx/modules/cfg80211.ko:root/modules/cfg80211.ko \
@@ -36,7 +37,6 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/wl12xx/firmware/wl1271-nvs.bin:system/etc/firmware/wl1271-nvs.bin
 
 PRODUCT_PACKAGES += \
-    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
     hostapd_cli \
     hostapd
 
