@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="warning">Aviso</string>
+  <string name="caution_keyboard_layout">Ao trocar a disposição do Teclado, algumas teclas podem parar de funcionar, tenha certeza que esteja trocando para somente a disposição correta! Tem certeza que deseja continuar?</string>
+  <string name="keyboard_language_title">Disposição do Teclado</string>
+  <string name="keyboard_language_summary">Alterar disposição de linguagem do teclado físico</string>
+  <string name="general_settings_title">Configurações gerais</string>
+</resources>
