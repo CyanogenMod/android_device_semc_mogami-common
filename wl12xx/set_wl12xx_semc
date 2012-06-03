@@ -37,6 +37,7 @@ patch -p1 < $CM_DEVICE/wl12xx/patches/compat-wireless.09.patch
 ./scripts/driver-select wl12xx
 patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.C.0.6.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.C.0.7.patch
+patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.H.0.4.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/firmware.patch
 cd ..
 
