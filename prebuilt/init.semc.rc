@@ -101,6 +101,7 @@ on boot
     class_start default
 
     #load new wl1271 modules
+    /system/bin/calibrator set upd_nvs /etc/tiwlan.ini /data/etc/wifi/fw
     insmod /modules/compat.ko
     insmod /modules/compat_firmware_class.ko
     insmod /modules/cfg80211.ko

@@ -31,6 +31,7 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/wl12xx/modules/wl12xx_sdio.ko:root/modules/wl12xx_sdio.ko
 
 PRODUCT_PACKAGES += \
+    calibrator \
     hostapd_cli \
     hostapd
 
