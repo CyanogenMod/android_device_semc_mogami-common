@@ -15,6 +15,7 @@
 #
 -include device/semc/msm7x30-common/msm7x30.mk
 
+DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
 # Init files  and configs
 
@@ -31,7 +32,6 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/wl12xx/modules/wl12xx_sdio.ko:root/modules/wl12xx_sdio.ko
 
 PRODUCT_PACKAGES += \
-    calibrator \
     hostapd_cli \
     hostapd
 
