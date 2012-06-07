@@ -46,4 +46,5 @@ PRODUCT_PACKAGES += \
     libfmrx
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0
+    wifi.interface=wlan0 \
+    ro.telephony.default_network=0
