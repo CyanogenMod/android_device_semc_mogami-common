@@ -47,4 +47,5 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
-    ro.telephony.default_network=0
+    ro.telephony.default_network=0 \
+    com.qc.hdmi_out=true
