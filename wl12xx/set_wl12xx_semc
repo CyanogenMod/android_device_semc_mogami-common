@@ -4,12 +4,12 @@ export TI12XX_ROOT=$CM_PATH/hardware/ti/wl12xx
 export GIT_TREE=$CM_PATH/hardware/ti/wl12xx/wl12xx
 export GIT_COMPAT_TREE=$CM_PATH/hardware/ti/wl12xx/compat
 export DEVICE_PATH=$CM_PATH/device/semc/mogami-common/modules
-export KERNEL=$CM_PATH/kernel
+export KERNEL=$CM_PATH/out/target/product/anzu/obj/KERNEL_OBJ
+#kernel
 export CROSS_COMPILER=$CM_PATH/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
-#cd $CM_PATH
-#git clone git://github.com/freexperia/semc-kernel-msm7x30-ics
-#mv semc-kernel-msm7x30-ics kernel
+#cp kernel/semc/msm7x30 kernel
+#cd out/target/product/anzu/obj/KERNEL_OBJ
 
 mkdir $TI12XX_ROOT
 cd $TI12XX_ROOT
