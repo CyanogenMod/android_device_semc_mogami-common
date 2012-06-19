@@ -102,12 +102,12 @@ on boot
 
     #load new wl1271 modules
     /system/bin/calibrator set upd_nvs /etc/tiwlan.ini /data/etc/wifi/fw
-    insmod /modules/compat.ko
-    insmod /modules/compat_firmware_class.ko
-    insmod /modules/cfg80211.ko
-    insmod /modules/mac80211.ko
-    insmod /modules/wl12xx.ko
-    insmod /modules/wl12xx_sdio.ko
+    insmod /system/lib/modules/compat.ko
+    insmod /system/lib/modules/compat_firmware_class.ko
+    insmod /system/lib/modules/cfg80211.ko
+    insmod /system/lib/modules/mac80211.ko
+    insmod /system/lib/modules/wl12xx.ko
+    insmod /system/lib/modules/wl12xx_sdio.ko
 
     # USB host support
     mkdir /dev/bus 0771 system system
