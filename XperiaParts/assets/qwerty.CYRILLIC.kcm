@@ -9,7 +9,7 @@ key A {
     number:                             '2'
     base:                               '\u0444'
     shift:                              '\u0424'
-    alt, capslock:                      '\u0009'
+    alt, alt+capslock:                  '\u0009'
     shift+alt:                          'A'
     capslock:                           'a'
     shift+capslock:                     'A'
@@ -20,7 +20,7 @@ key B {
     number:                             '2'
     base:                               '\u0438'
     shift:                              '\u0418'
-    alt, capslock:                      '$'
+    alt, alt+capslock:                  '$'
     shift+alt:                          none
     capslock:                           'b'
     shift+capslock:                     'B'
@@ -31,7 +31,7 @@ key C {
     number:                             '2'
     base:                               'c'
     shift:                              'C'
-    alt, capslock:                      '\''
+    alt, alt+capslock:                  '\''
     shift+alt:                          'C'
     capslock:                           'c'
     shift+capslock:                     'C'
@@ -42,7 +42,7 @@ key D {
     number:                             '3'
     base:                               '\u0432'
     shift:                              '\u0412'
-    alt, capslock:                      '_'
+    alt, alt+capslock:                  '_'
     shift+alt:                          none
     capslock:                           'd'
     shift+capslock:                     'D'
@@ -53,7 +53,7 @@ key E {
     number:                             '3'
     base:                               'y'
     shift:                              'Y'
-    alt, capslock:                      '3'
+    alt, alt+capslock:                  '3'
     shift+alt:                          '\u0301'
     capslock:                           'e'
     shift+capslock:                     'E'
@@ -64,7 +64,7 @@ key F {
     number:                             '3'
     base:                               'a'
     shift:                              'A'
-    alt, capslock:                      '-'
+    alt, alt+capslock:                  '-'
     shift+alt:                          '\u00a5'
     capslock:                           'f'
     shift+capslock:                     'F'
@@ -75,7 +75,7 @@ key G {
     number:                             '4'
     base:                               '\u043F'
     shift:                              '\u041F'
-    alt, capslock:                      '+'
+    alt, alt+capslock:                  '+'
     shift+alt:                          '_'
     capslock:                           'g'
     shift+capslock:                     'G'
@@ -86,7 +86,7 @@ key H {
     number:                             '4'
     base:                               'p'
     shift:                              'P'
-    alt, capslock:                      '*'
+    alt, alt+capslock:                  '*'
     shift+alt:                          '{'
     capslock:                           'h'
     shift+capslock:                     'H'
@@ -97,7 +97,7 @@ key I {
     number:                             '4'
     base:                               '\u0448'
     shift:                              '\u0428'
-    alt, capslock:                      '8'
+    alt, alt+capslock:                  '8'
     shift+alt:                          '\u0302'
     capslock:                           'i'
     shift+capslock:                     'I'
@@ -108,7 +108,7 @@ key J {
     number:                             '5'
     base:                               '\u043E'
     shift:                              'O'
-    alt, capslock:                      '#'
+    alt, alt+capslock:                  '#'
     shift+alt:                          '}'
     capslock:                           'j'
     shift+capslock:                     'J'
@@ -119,7 +119,7 @@ key K {
     number:                             '5'
     base:                               '\u043B'
     shift:                              '\u041B'
-    alt, capslock:                      'X'
+    alt, alt+capslock:                  'X'
     shift+alt:                          '~'
     capslock:                           'k'
     shift+capslock:                     'K'
@@ -130,7 +130,7 @@ key L {
     number:                             '5'
     base:                               '\u0434'
     shift:                              '\u0414'
-    alt, capslock:                      '\u044A'
+    alt, alt+capslock:                  '\u044A'
     shift+alt:                          '`'
     capslock:                           'l'
     shift+capslock:                     'L'
@@ -138,10 +138,10 @@ key L {
 
 key M {
     label:                              'M'
-    number:                             '\u044C'
-    base:                               '\u042C'
-    shift:                              'M'
-    alt, capslock:                      ')'
+    number:                             '6'
+    base:                               '\u044C'
+    shift:                              '\u042C'
+    alt, alt+capslock:                  ')'
     shift+alt:                          none
     capslock:                           'm'
     shift+capslock:                     'M'
@@ -152,7 +152,7 @@ key N {
     number:                             '6'
     base:                               '\u0442'
     shift:                              'T'
-    alt, capslock:                      '('
+    alt, alt+capslock:                  '('
     shift+alt:                          none
     capslock:                           'n'
     shift+capslock:                     'N'
@@ -163,7 +163,7 @@ key O {
     number:                             '6'
     base:                               '\u0449'
     shift:                              '\u0429'
-    alt, capslock:                      '9'
+    alt, alt+capslock:                  '9'
     shift+alt:                          none
     capslock:                           'o'
     shift+capslock:                     'O'
@@ -173,8 +173,8 @@ key P {
     label:                              'P'
     number:                             '7'
     base:                               '\u0437'
-    shift:                              '\u0417'
-    alt, capslock:                      '0'
+    shift:                              '3'
+    alt, alt+capslock:                  '0'
     shift+alt:                          none
     capslock:                           'p'
     shift+capslock:                     'P'
@@ -185,7 +185,7 @@ key Q {
     number:                             '7'
     base:                               '\u0439'
     shift:                              '\u0419'
-    alt, capslock:                      '1'
+    alt, alt+capslock:                  '1'
     shift+alt:                          '\u0300'
     capslock:                           'q'
     shift+capslock:                     'Q'
@@ -196,7 +196,7 @@ key R {
     number:                             '7'
     base:                               '\u043A'
     shift:                              'K'
-    alt, capslock:                      '4'
+    alt, alt+capslock:                  '4'
     shift+alt:                          '\u20ac'
     capslock:                           'r'
     shift+capslock:                     'R'
@@ -207,7 +207,7 @@ key S {
     number:                             '7'
     base:                               '\u044B'
     shift:                              '\u042B'
-    alt, capslock:                      '%'
+    alt, alt+capslock:                  '%'
     shift+alt:                          '\u00df'
     capslock:                           's'
     shift+capslock:                     'S'
@@ -218,7 +218,7 @@ key T {
     number:                             '8'
     base:                               'e'
     shift:                              'E'
-    alt, capslock:                      '5'
+    alt, alt+capslock:                  '5'
     shift+alt:                          '\u00a3'
     capslock:                           't'
     shift+capslock:                     'T'
@@ -229,7 +229,7 @@ key U {
     number:                             '8'
     base:                               '\u0433'
     shift:                              '\u0413'
-    alt, capslock:                      '7'
+    alt, alt+capslock:                  '7'
     shift+alt:                          '\u0308'
     capslock:                           'u'
     shift+capslock:                     'U'
@@ -240,7 +240,7 @@ key V {
     number:                             '8'
     base:                               '\u043C'
     shift:                              'M'
-    alt, capslock:                      '/'
+    alt, alt+capslock:                  '/'
     shift+alt:                          '^'
     capslock:                           'v'
     shift+capslock:                     'V'
@@ -251,7 +251,7 @@ key W {
     number:                             '9'
     base:                               '\u0446'
     shift:                              '\u0426'
-    alt, capslock:                      '2'
+    alt, alt+capslock:                  '2'
     shift+alt:                          none
     capslock:                           'w'
     shift+capslock:                     'W'
@@ -262,7 +262,7 @@ key X {
     number:                             '9'
     base:                               '\u0447'
     shift:                              '\u0427'
-    alt, capslock:                      '%'
+    alt, alt+capslock:                  '%'
     shift+alt:                          '\uef00'
     capslock:                           'x'
     shift+capslock:                     'X'
@@ -273,7 +273,7 @@ key Y {
     number:                             '9'
     base:                               '\u043D'
     shift:                              '\u041D'
-    alt, capslock:                      '6'
+    alt, alt+capslock:                  '6'
     shift+alt:                          '\u00a1'
     capslock:                           'y'
     shift+capslock:                     'Y'
@@ -284,7 +284,7 @@ key Z {
     number:                             '9'
     base:                               '\u044F'
     shift:                              '\u042F'
-    alt, capslock:                      '@'
+    alt, alt+capslock:                  '@'
     shift+alt:                          none
     capslock:                           'z'
     shift+capslock:                     'Z'
@@ -295,7 +295,7 @@ key COMMA {
     number:                             ','
     base:                               ','
     shift:                              ';'
-    alt, capslock:                      ';'
+    alt, alt+capslock:                  ';'
     shift+alt:                          '|'
     capslock:                           ','
     shift+capslock:                     ';'
@@ -306,7 +306,7 @@ key PERIOD {
     number:                             '.'
     base:                               '.'
     shift:                              ':'
-    alt, capslock:                      ':'
+    alt, alt+capslock:                  ':'
     shift+alt:                          '\u2026'
     capslock:                           '.'
     shift+capslock:                     ':'
@@ -317,7 +317,7 @@ key AT {
     number:                             '0'
     base:                               '@'
     shift:                              '@'
-    alt, capslock:                      '&'
+    alt, alt+capslock:                  '&'
     shift+alt:                          '\u2022'
     capslock:                           '@'
     shift+capslock:                     '@'
@@ -328,7 +328,7 @@ key SLASH {
     number:                             '/'
     base:                               '/'
     shift:                              '?'
-    alt, capslock:                      '?'
+    alt, alt+capslock:                  '?'
     shift+alt:                          '\\'
 }
 
@@ -337,7 +337,7 @@ key SPACE {
     number:                             ' '
     base:                               ' '
     shift:                              ' '
-    alt, capslock:                      ' '
+    alt, alt+capslock:                  ' '
     shift+alt:                          ' '
     capslock:                           ' '
     shift+capslock:                     ' '
@@ -348,7 +348,7 @@ key ENTER {
     number:                             '\n'
     base:                               '\n'
     shift:                              '\n'
-    alt, capslock:                      '\n'
+    alt, alt+capslock:                  '\n'
     shift+alt:                          '\n'
     capslock:                           '\n'
     shift+capslock:                     '\n'
@@ -359,7 +359,7 @@ key TAB {
     number:                             '\t'
     base:                               '\t'
     shift:                              '\t'
-    alt, capslock:                      '\t'
+    alt, alt+capslock:                  '\t'
     shift+alt:                          '\t'
 }
 
@@ -368,7 +368,7 @@ key 0 {
     number:                             '0'
     base:                               '0'
     shift:                              ')'
-    alt, capslock:                      ')'
+    alt, alt+capslock:                  ')'
     shift+alt:                          ')'
 }
 
@@ -377,7 +377,7 @@ key 1 {
     number:                             '1'
     base:                               '1'
     shift:                              '!'
-    alt, capslock:                      '!'
+    alt, alt+capslock:                  '!'
     shift+alt:                          '!'
 }
 
@@ -386,7 +386,7 @@ key 2 {
     number:                             '2'
     base:                               '2'
     shift:                              '@'
-    alt, capslock:                      '@'
+    alt, alt+capslock:                  '@'
     shift+alt:                          '@'
 }
 
@@ -395,7 +395,7 @@ key 3 {
     number:                             '3'
     base:                               '3'
     shift:                              '#'
-    alt, capslock:                      '#'
+    alt, alt+capslock:                  '#'
     shift+alt:                          '#'
 }
 
@@ -404,7 +404,7 @@ key 4 {
     number:                             '4'
     base:                               '4'
     shift:                              '$'
-    alt, capslock:                      '$'
+    alt, alt+capslock:                  '$'
     shift+alt:                          '$'
 }
 
@@ -413,7 +413,7 @@ key 5 {
     number:                             '5'
     base:                               '5'
     shift:                              '%'
-    alt, capslock:                      '%'
+    alt, alt+capslock:                  '%'
     shift+alt:                          '%'
 }
 
@@ -422,7 +422,7 @@ key 6 {
     number:                             '6'
     base:                               '6'
     shift:                              '^'
-    alt, capslock:                      '^'
+    alt, alt+capslock:                  '^'
     shift+alt:                          '^'
 }
 
@@ -431,7 +431,7 @@ key 7 {
     number:                             '7'
     base:                               '7'
     shift:                              '&'
-    alt, capslock:                      '&'
+    alt, alt+capslock:                  '&'
     shift+alt:                          '&'
 }
 
@@ -440,7 +440,7 @@ key 8 {
     number:                             '8'
     base:                               '8'
     shift:                              '*'
-    alt, capslock:                      '*'
+    alt, alt+capslock:                  '*'
     shift+alt:                          '*'
 }
 
@@ -449,7 +449,7 @@ key 9 {
     number:                             '9'
     base:                               '9'
     shift:                              '('
-    alt, capslock:                      '('
+    alt, alt+capslock:                  '('
     shift+alt:                          '('
 }
 
@@ -458,7 +458,7 @@ key GRAVE {
     number:                             '?'
     base:                               '?'
     shift:                              '~'
-    alt, capslock:                      '!'
+    alt, alt+capslock:                  '!'
     shift+alt:                          '~'
     capslock:                           '?'
     shift+capslock:                     '~'
@@ -469,7 +469,7 @@ key MINUS {
     number:                             '-'
     base:                               '-'
     shift:                              '_'
-    alt, capslock:                      '-'
+    alt, alt+capslock:                  '-'
     shift+alt:                          '_'
 }
 
@@ -478,7 +478,7 @@ key EQUALS {
     number:                             '='
     base:                               '='
     shift:                              '+'
-    alt, capslock:                      '='
+    alt, alt+capslock:                  '='
     shift+alt:                          '+'
 }
 
@@ -487,7 +487,7 @@ key LEFT_BRACKET {
     number:                             '['
     base:                               '['
     shift:                              '{'
-    alt, capslock:                      '['
+    alt, alt+capslock:                  '['
     shift+alt:                          '{'
 }
 
@@ -496,7 +496,7 @@ key RIGHT_BRACKET {
     number:                             ']'
     base:                               ']'
     shift:                              '}'
-    alt, capslock:                      ']'
+    alt, alt+capslock:                  ']'
     shift+alt:                          '}'
 }
 
@@ -505,7 +505,7 @@ key BACKSLASH {
     number:                             '\\'
     base:                               '\\'
     shift:                              '|'
-    alt, capslock:                      '\\'
+    alt, alt+capslock:                  '\\'
     shift+alt:                          '|'
 }
 
@@ -514,7 +514,7 @@ key SEMICOLON {
     number:                             ';'
     base:                               ';'
     shift:                              ':'
-    alt, capslock:                      ';'
+    alt, alt+capslock:                  ';'
     shift+alt:                          ':'
 }
 
@@ -523,7 +523,7 @@ key APOSTROPHE {
     number:                             '\''
     base:                               '\''
     shift:                              '"'
-    alt, capslock:                      '"'
+    alt, alt+capslock:                  '"'
     shift+alt:                          '"'
     capslock:                           '\''
     shift+capslock:                     '"'
@@ -534,7 +534,7 @@ key STAR {
     number:                             '*'
     base:                               '*'
     shift:                              '*'
-    alt, capslock:                      '*'
+    alt, alt+capslock:                  '*'
     shift+alt:                          '*'
 }
 
@@ -543,7 +543,7 @@ key POUND {
     number:                             '#'
     base:                               '#'
     shift:                              '#'
-    alt, capslock:                      '#'
+    alt, alt+capslock:                  '#'
     shift+alt:                          '#'
 }
 
@@ -552,7 +552,7 @@ key PLUS {
     number:                             '+'
     base:                               '+'
     shift:                              '+'
-    alt, capslock:                      '+'
+    alt, alt+capslock:                  '+'
     shift+alt:                          '+'
 }
 
@@ -561,7 +561,7 @@ key META_LEFT {
     number:                             '\uef01'
     base:                               '\uef01'
     shift:                              '\uef01'
-    alt, capslock:                      '\uef01'
+    alt, alt+capslock:                  '\uef01'
     shift+alt:                          '\uef01'
     capslock:                           '\uef01'
     shift+capslock:                     '\uef01'
