@@ -24,7 +24,7 @@ PRODUCT_COPY_FILES += \
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
-    device/semc/mogami-common/prebuilt/10wifiload:system/etc/init.d/10wifiload \
+    device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload \
     device/semc/mogami-common/wl12xx/modules/compat.ko:system/lib/modules/compat.ko \
     device/semc/mogami-common/wl12xx/modules/compat_firmware_class.ko:system/lib/modules/compat_firmware_class.ko \
     device/semc/mogami-common/wl12xx/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \

@@ -10,6 +10,3 @@ mount -o remount rw /system
 cp /data/etc/wifi/wl1271-nvs.bin /system/etc/firmware/wl1271-nvs.bin
 mount -o remount ro /system
 fi
-
-insmod /system/lib/modules/wl12xx.ko
-insmod /system/lib/modules/wl12xx_sdio.ko
