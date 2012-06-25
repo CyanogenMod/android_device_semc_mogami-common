@@ -84,10 +84,6 @@
         <item>0</item>
     </integer-array>
 
-    <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
-         specified -->
-    <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string>
-
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
     <!-- the 5th element "resore-time" indicates the number of milliseconds to delay
