@@ -1,5 +1,4 @@
-# Original idea by Paul-xxx
-# Made by KrSH - Danish version by hnl_dk
+# Made by hnl_dk - Cyrillic version by Bin4ry
 # Xperia Mini Pro keyboard character map based on qwerty.kcm
 
 type ALPHA
@@ -62,8 +61,8 @@ key E {
 key F {
     label:                              'F'
     number:                             '3'
-    base:                               'a'
-    shift:                              'A'
+    base:                               '\u0430'
+    shift:                              '\u0410'
     alt, alt+capslock:                  '-'
     shift+alt:                          '\u00a5'
     capslock:                           'f'
@@ -84,8 +83,8 @@ key G {
 key H {
     label:                              'H'
     number:                             '4'
-    base:                               'p'
-    shift:                              'P'
+    base:                               '\u0440'
+    shift:                              '\u0420'
     alt, alt+capslock:                  '*'
     shift+alt:                          '{'
     capslock:                           'h'
@@ -107,7 +106,7 @@ key J {
     label:                              'J'
     number:                             '5'
     base:                               '\u043E'
-    shift:                              'O'
+    shift:                              '\u041E'
     alt, alt+capslock:                  '#'
     shift+alt:                          '}'
     capslock:                           'j'
@@ -119,8 +118,8 @@ key K {
     number:                             '5'
     base:                               '\u043B'
     shift:                              '\u041B'
-    alt, alt+capslock:                  'X'
-    shift+alt:                          '~'
+    alt, alt+capslock:                  '\u0445'
+    shift+alt:                          '\u0425'
     capslock:                           'k'
     shift+capslock:                     'K'
 }
@@ -131,7 +130,7 @@ key L {
     base:                               '\u0434'
     shift:                              '\u0414'
     alt, alt+capslock:                  '\u044A'
-    shift+alt:                          '`'
+    shift+alt:                          '\u042A'
     capslock:                           'l'
     shift+capslock:                     'L'
 }
@@ -139,8 +138,8 @@ key L {
 key M {
     label:                              'M'
     number:                             '6'
-    base:                               '\u044C'
-    shift:                              '\u042C'
+    base:                               '\u0431'
+    shift:                              '\u0411'
     alt, alt+capslock:                  ')'
     shift+alt:                          none
     capslock:                           'm'
@@ -151,7 +150,7 @@ key N {
     label:                              'N'
     number:                             '6'
     base:                               '\u0442'
-    shift:                              'T'
+    shift:                              '\u0442'
     alt, alt+capslock:                  '('
     shift+alt:                          none
     capslock:                           'n'
@@ -195,7 +194,7 @@ key R {
     label:                              'R'
     number:                             '7'
     base:                               '\u043A'
-    shift:                              'K'
+    shift:                              '\u041A'
     alt, alt+capslock:                  '4'
     shift+alt:                          '\u20ac'
     capslock:                           'r'
@@ -216,8 +215,8 @@ key S {
 key T {
     label:                              'T'
     number:                             '8'
-    base:                               'e'
-    shift:                              'E'
+    base:                               '\u0435'
+    shift:                              '\u0415'
     alt, alt+capslock:                  '5'
     shift+alt:                          '\u00a3'
     capslock:                           't'
@@ -239,7 +238,7 @@ key V {
     label:                              'V'
     number:                             '8'
     base:                               '\u043C'
-    shift:                              'M'
+    shift:                              '\u043C'
     alt, alt+capslock:                  '/'
     shift+alt:                          '^'
     capslock:                           'v'
@@ -456,10 +455,10 @@ key 9 {
 key GRAVE {
     label:                              '?'
     number:                             '?'
-    base:                               '?'
-    shift:                              '~'
-    alt, alt+capslock:                  '!'
-    shift+alt:                          '~'
+    base:                               '\u044C'
+    shift:                              '\u044C'
+    alt, alt+capslock:                  '\u044E'
+    shift+alt:                          '\u042E'
     capslock:                           '?'
     shift+capslock:                     '~'
 }
@@ -521,10 +520,10 @@ key SEMICOLON {
 key APOSTROPHE {
     label:                              '\''
     number:                             '\''
-    base:                               '\''
-    shift:                              '"'
-    alt, alt+capslock:                  '"'
-    shift+alt:                          '"'
+    base:                               '\u044D'
+    shift:                              '\u042D'
+    alt, alt+capslock:                  '\u0436'
+    shift+alt:                          '\u0416'
     capslock:                           '\''
     shift+capslock:                     '"'
 }
