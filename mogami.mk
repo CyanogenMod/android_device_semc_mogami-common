@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
--include device/semc/msm7x30-common/msm7x30.mk
 
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 

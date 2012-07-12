@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
--include device/semc/msm7x30-common/BoardConfigCommon.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := mogami
 
@@ -31,5 +30,3 @@ BOARD_CAMERA_USE_GETBUFFERINFO := true
 
 BOARD_HAVE_FM_RADIO_TI := true
 COMMON_GLOBAL_CFLAGS += -DHAVE_FM_RADIO -DHAVE_SEMC_FM_RADIO
-
--include device/semc/msm7x30-common/Android.mk
