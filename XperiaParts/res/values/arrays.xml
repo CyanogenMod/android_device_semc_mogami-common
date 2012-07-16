@@ -8,6 +8,7 @@
         <item>@string/kbl_azerty</item>
 		<item>@string/kbl_greek</item>
 		<item>@string/kbl_cyrillic</item>
+		<item>@string/kbl_arabic</item>
     </string-array>
 
     <string-array name="keyboard_layout_array_values">
@@ -19,5 +20,6 @@
          <item>qwerty.AZERTY</item>
 		 <item>qwerty.GREEK</item>
 		 <item>qwerty.CYRILLIC</item>
+		 <item>qwerty.ARABIC</item>
     </string-array>
 </resources>

@@ -20,4 +20,5 @@
     <string name="kbl_azerty">AZERTY</string>
 	<string name="kbl_greek">GREEK</string>
 	<string name="kbl_cyrillic">CYRILLIC</string>
+	<string name="kbl_arabic">ARABIC</string>
 </resources>
