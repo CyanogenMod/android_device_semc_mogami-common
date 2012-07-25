@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Options that show upon long-pressing a key on the physical keyboard -->
+    <string name="symbol_picker_A">\u00C4</string>
+    <string name="symbol_picker_C"></string>
+    <string name="symbol_picker_D"></string>
+    <string name="symbol_picker_E"></string>
+    <string name="symbol_picker_G"></string>
+    <string name="symbol_picker_L"></string>
+    <string name="symbol_picker_I"></string>
+    <string name="symbol_picker_N"></string>
+    <string name="symbol_picker_O">\u00D6</string>
+    <string name="symbol_picker_R"></string>
+    <string name="symbol_picker_S"></string>
+    <string name="symbol_picker_T"></string>
+    <string name="symbol_picker_U">\u00DC</string>
+    <string name="symbol_picker_Y"></string>
+    <string name="symbol_picker_Z"></string>
+    <string name="symbol_picker_a">\u00E4</string>
+    <string name="symbol_picker_c"></string>
+    <string name="symbol_picker_d"></string>
+    <string name="symbol_picker_e"></string>
+    <string name="symbol_picker_g"></string>
+    <string name="symbol_picker_i"></string>
+    <string name="symbol_picker_l"></string>
+    <string name="symbol_picker_n"></string>
+    <string name="symbol_picker_o">\u00F6</string>
+    <string name="symbol_picker_r"></string>
+    <string name="symbol_picker_s">\u00DF</string>
+    <string name="symbol_picker_t"></string>
+    <string name="symbol_picker_u">\u00FC</string>
+    <string name="symbol_picker_y"></string>
+    <string name="symbol_picker_z"></string>
+
+</resources>
