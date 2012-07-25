@@ -112,12 +112,11 @@ on boot
     chmod 0660 /sys/devices/platform/msm_hsusb/gadget/lun1/file
     chown usb usb /sys/devices/platform/msm_hsusb/gadget/lun1/file
 
-
 on property:init.svc.bluetoothd=running
     write /sys/devices/virtual/bluetooth/hci0/link_supervision_timeout 6400
 
 service netmgrd /system/bin/netmgrd -E
-    class main
+    class late_start
 
 on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
@@ -190,7 +189,9 @@ service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0 &
     oneshot
 
 service qmuxd /system/bin/qmuxd
-    class main
+    class late_start
+    user radio
+    group radio audio bluetooth gps
 
 service akmd8975 /system/bin/akmd8975
     class main
@@ -203,4 +204,3 @@ service hw_config /sbin/sh /system/etc/hw_config.sh
     class main
     user root
     oneshot
-
