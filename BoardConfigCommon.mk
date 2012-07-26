@@ -29,8 +29,7 @@ TARGET_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetoot
 BOARD_OVERLAY_FORMAT_YCrCb_420_SP := true
 BOARD_CAMERA_USE_GETBUFFERINFO := true
 
-BOARD_HAVE_FM_RADIO_TI := true
-
-COMMON_GLOBAL_CFLAGS += -DHAVE_FM_RADIO -DHAVE_SEMC_FM_RADIO
+#BOARD_HAVE_FM_RADIO_TI := true
+#COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED -DHAVE_SEMC_FM_RADIO
 
 -include device/semc/msm7x30-common/Android.mk
