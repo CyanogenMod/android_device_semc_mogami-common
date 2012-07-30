@@ -113,6 +113,8 @@ on boot
     chmod 0660 /sys/devices/platform/msm_hsusb/gadget/lun1/file
     chown usb usb /sys/devices/platform/msm_hsusb/gadget/lun1/file
 
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
 on property:init.svc.bluetoothd=running
     write /sys/devices/virtual/bluetooth/hci0/link_supervision_timeout 6400
 
