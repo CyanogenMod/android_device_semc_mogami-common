@@ -118,13 +118,6 @@ on boot
 on property:init.svc.bluetoothd=running
     write /sys/devices/virtual/bluetooth/hci0/link_supervision_timeout 6400
 
-service netmgrd /system/bin/netmgrd -E
-    class late_start
-
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
-
 service hciattach /system/bin/hciattach -n /dev/ttyHS0 texas 3000000
     class main
     user bluetooth
@@ -192,9 +185,16 @@ service port-bridge /system/bin/port-bridge /dev/smd0 /dev/ttyGS0 &
     oneshot
 
 service qmuxd /system/bin/qmuxd
-    class late_start
+    class core
     user radio
     group radio audio bluetooth gps
+
+service netmgrd /system/bin/netmgrd -E
+    class core
+
+on property:ro.use_data_netmgrd=false
+    # netmgr not supported on specific target
+    stop netmgrd
 
 service akmd8975 /system/bin/akmd8975
     class main
