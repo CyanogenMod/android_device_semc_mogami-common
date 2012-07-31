@@ -1,4 +1,4 @@
-export CM_PATH=/work/cm9
+export CM_PATH=/work/cm10
 export CM_DEVICE=$CM_PATH/device/semc/mogami-common
 export TI12XX_ROOT=$CM_PATH/hardware/ti/wl12xx
 export GIT_TREE=$CM_PATH/hardware/ti/wl12xx/wl12xx
@@ -8,8 +8,16 @@ export KERNEL=$CM_PATH/out/target/product/anzu/obj/KERNEL_OBJ
 #kernel
 export CROSS_COMPILER=$CM_PATH/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
-#cp kernel/semc/msm7x30 kernel
-#cd out/target/product/anzu/obj/KERNEL_OBJ
+#cleanup
+rm -r cd $CM_PATH/hardware/ti/wl12xx/compat-wireless
+
+cd $CM_PATH
+rm -r out/target/product/anzu/obj/KERNEL_OBJ
+mkdir -p out/target/product/anzu/obj/KERNEL_OBJ
+cp -r kernel/semc/msm7x30/* out/target/product/anzu/obj/KERNEL_OBJ
+cd out/target/product/anzu/obj/KERNEL_OBJ
+make ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24 cyanogen_anzu_defconfig
+make ARCH=arm CROSS_COMPILE=$CROSS_COMPILER -j24
 
 mkdir $TI12XX_ROOT
 cd $TI12XX_ROOT
