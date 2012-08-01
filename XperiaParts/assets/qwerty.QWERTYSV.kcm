@@ -265,15 +265,6 @@ key AT {
     shift+alt, capslock+alt:            none
 }
 
-key SLASH {
-    label:                              '/'
-    number:                             '/'
-    base:                               '/'
-    shift, capslock:                    '?'
-    alt:                                '?'
-    shift+alt, capslock+alt:            none
-}
-
 key SPACE {
     label:                              ' '
     number:                             ' '
@@ -292,105 +283,6 @@ key ENTER {
     shift+alt, capslock+alt:            '\n'
 }
 
-key TAB {
-    label:                              '\t'
-    number:                             '\t'
-    base:                               '\t'
-    shift, capslock:                    '\t'
-    alt:                                '\t'
-    shift+alt, capslock+alt:            '\t'
-}
-
-key 0 {
-    label:                              '0'
-    number:                             '0'
-    base:                               '0'
-    shift, capslock:                    ')'
-    alt:                                ')'
-    shift+alt, capslock+alt:            ')'
-}
-
-key 1 {
-    label:                              '1'
-    number:                             '1'
-    base:                               '1'
-    shift, capslock:                    '!'
-    alt:                                '!'
-    shift+alt, capslock+alt:            '!'
-}
-
-key 2 {
-    label:                              '2'
-    number:                             '2'
-    base:                               '2'
-    shift, capslock:                    '@'
-    alt:                                '@'
-    shift+alt, capslock+alt:            '@'
-}
-
-key 3 {
-    label:                              '3'
-    number:                             '3'
-    base:                               '3'
-    shift, capslock:                    '#'
-    alt:                                '#'
-    shift+alt, capslock+alt:            '#'
-}
-
-key 4 {
-    label:                              '4'
-    number:                             '4'
-    base:                               '4'
-    shift, capslock:                    '$'
-    alt:                                '$'
-    shift+alt, capslock+alt:            '$'
-}
-
-key 5 {
-    label:                              '5'
-    number:                             '5'
-    base:                               '5'
-    shift, capslock:                    '%'
-    alt:                                '%'
-    shift+alt, capslock+alt:            '%'
-}
-
-key 6 {
-    label:                              '6'
-    number:                             '6'
-    base:                               '6'
-    shift, capslock:                    '^'
-    alt:                                '^'
-    shift+alt, capslock+alt:            '^'
-}
-
-key 7 {
-    label:                              '7'
-    number:                             '7'
-    base:                               '7'
-    shift, capslock:                    '&'
-    alt:                                '&'
-    shift+alt, capslock+alt:            '&'
-}
-
-key 8 {
-    label:                              '8'
-    number:                             '8'
-    base:                               '8'
-    shift, capslock:                    '*'
-    alt:                                '*'
-    shift+alt, capslock+alt:            '*'
-}
-
-key 9 {
-    label:                              '9'
-    number:                             '9'
-    base:                               '9'
-    shift, capslock:                    '('
-    alt:                                '('
-    shift+alt, capslock+alt:            '('
-}
-
 key GRAVE {
     label:                              '\u00C4'
     number:                             '\u00C4'
@@ -400,60 +292,6 @@ key GRAVE {
     shift+alt, capslock+alt:            none
 }
 
-key MINUS {
-    label:                              '-'
-    number:                             '-'
-    base:                               '-'
-    shift, capslock:                    '_'
-    alt:                                '-'
-    shift+alt, capslock+alt:            '_'
-}
-
-key EQUALS {
-    label:                              '='
-    number:                             '='
-    base:                               '='
-    shift, capslock:                    '+'
-    alt:                                '='
-    shift+alt, capslock+alt:            '+'
-}
-
-key LEFT_BRACKET {
-    label:                              '['
-    number:                             '['
-    base:                               '['
-    shift, capslock:                    '{'
-    alt:                                '['
-    shift+alt, capslock+alt:            '{'
-}
-
-key RIGHT_BRACKET {
-    label:                              ']'
-    number:                             ']'
-    base:                               ']'
-    shift, capslock:                    '}'
-    alt:                                ']'
-    shift+alt, capslock+alt:            '}'
-}
-
-key BACKSLASH {
-    label:                              '\\'
-    number:                             '\\'
-    base:                               '\\'
-    shift, capslock:                    '|'
-    alt:                                '\\'
-    shift+alt, capslock+alt:            '|'
-}
-
-key SEMICOLON {
-    label:                              ';'
-    number:                             ';'
-    base:                               ';'
-    shift, capslock:                    ':'
-    alt:                                ';'
-    shift+alt, capslock+alt:            ':'
-}
-
 key APOSTROPHE {
     label:                              '\u00C5'
     number:                             '\u00C5'
@@ -461,33 +299,6 @@ key APOSTROPHE {
     shift, capslock:                    '\u00C5'
     alt:                                '"'
     shift+alt, capslock+alt:            none
-}
-
-key STAR {
-    label:                              '*'
-    number:                             '*'
-    base:                               '*'
-    shift, capslock:                    '*'
-    alt:                                '*'
-    shift+alt, capslock+alt:            '*'
-}
-
-key POUND {
-    label:                              '#'
-    number:                             '#'
-    base:                               '#'
-    shift, capslock:                    '#'
-    alt:                                '#'
-    shift+alt, capslock+alt:            '#'
-}
-
-key PLUS {
-    label:                              '+'
-    number:                             '+'
-    base:                               '+'
-    shift, capslock:                    '+'
-    alt:                                '+'
-    shift+alt, capslock+alt:            '+'
 }
 
 key META_LEFT {
