@@ -25,8 +25,8 @@ on early-init
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
     # for backwards compatibility
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
+    ln -s /storage/sdcard0 /sdcard
+    ln -s /storage/sdcard0 /mnt/sdcard
 
 on boot
     #radio fix
