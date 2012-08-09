@@ -1,5 +1,4 @@
 import init.semc.usb.rc
-import init.semc.keyboard.rc
 
 on early-boot
     #Run pre_hw_config.sh before entering charge only mode.

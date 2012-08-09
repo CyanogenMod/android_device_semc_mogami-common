@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Name of the application. [CHAR LIMIT=35] -->
+    <string name="app_label">Input Devices</string>
+
+    <!-- Keyboard layouts label, used to describe the set of all built-in layouts in the UI. [CHAR LIMIT=35] -->
+    <string name="keyboard_layouts_label">SEMC Xperia Mini Pro / Pro keyboard</string>
+
+    <!-- Arabic keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_arabic_label"></add-resource>
+    <string name="keyboard_layout_arabic_label">Arabic</string>
+
+    <!-- AZERTY keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_azerty_label"></add-resource>
+    <string name="keyboard_layout_azerty_label">AZERTY</string>
+
+    <!-- Cyrillic keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_cyrillic_label"></add-resource>
+    <string name="keyboard_layout_cyrillic_label">Cyrillic</string>
+
+    <!-- Danish/Norwegian keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_da_no_label"></add-resource>
+    <string name="keyboard_layout_da_no_label">Danish/Norwegian</string>
+
+    <!-- Greek keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_greek_label"></add-resource>
+    <string name="keyboard_layout_greek_label">Greek</string>
+
+    <!-- Portuguese/Catalan keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_pt_label"></add-resource>
+    <string name="keyboard_layout_pt_label">Portuguese/Catalan</string>
+
+    <!-- QWERTY keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_qwerty_label"></add-resource>
+    <string name="keyboard_layout_qwerty_label">QWERTY</string>
+
+    <!-- QWERTZ keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_qwertz_label"></add-resource>
+    <string name="keyboard_layout_qwertz_label">QWERTZ</string>
+
+    <!-- Swedish/Finnish keyboard layout label. [CHAR LIMIT=35] -->
+    <add-resource type="string" name="keyboard_layout_se_fi_label"></add-resource>
+    <string name="keyboard_layout_se_fi_label">Swedish/Finnish</string>
+</resources>
