@@ -1,0 +1,28 @@
+diff -uNr a/compat-wireless/compat/compat-2.6.37.c b/compat-wireless/compat/compat-2.6.37.c
+--- a/compat/compat-2.6.37.c	2012-08-13 11:23:39.938881180 +0300
++++ b/compat/compat-2.6.37.c	2012-08-13 11:23:53.606881180 +0300
+@@ -335,24 +335,4 @@
+ }
+ EXPORT_SYMBOL(compat_led_classdev_unregister);
+ 
+-/**
+- *	vzalloc - allocate virtually contiguous memory with zero fill
+- *	@size:	allocation size
+- *	Allocate enough pages to cover @size from the page level
+- *	allocator and map them into contiguous kernel virtual space.
+- *	The memory allocated is set to zero.
+- *
+- *	For tight control over page level allocator and protection flags
+- *	use __vmalloc() instead.
+- */
+-void *vzalloc(unsigned long size)
+-{
+-	void *buf;
+-	buf = vmalloc(size);
+-	if (buf)
+-		memset(buf, 0, size);
+-	return buf;
+-}
+-EXPORT_SYMBOL(vzalloc);
+-
+ #endif
