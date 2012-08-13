@@ -9,7 +9,7 @@ export KERNEL=$CM_PATH/out/target/product/anzu/obj/KERNEL_OBJ
 export CROSS_COMPILER=$CM_PATH/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin/arm-eabi-
 
 #cleanup
-rm -r cd $CM_PATH/hardware/ti/wl12xx/compat-wireless
+rm -r $CM_PATH/hardware/ti/wl12xx/compat-wireless
 
 cd $CM_PATH
 rm -r out/target/product/anzu/obj/KERNEL_OBJ
@@ -48,6 +48,7 @@ patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.C.0.7.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.H.0.4.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/4.1.B.0.431.patch
 patch -p1 < $CM_DEVICE/wl12xx/patches/firmware.patch
+patch -p1 < $CM_DEVICE/wl12xx/patches/vzalloc.patch
 cd ..
 
 cd compat-wireless

@@ -23,9 +23,6 @@ on fs
    mount_all /fstab.semc
 
 on early-init
-    # FIXME: Market checks this variable for space-checking, but downloads to /datadata
-    export DOWNLOAD_CACHE /data/download
-
     export EXTERNAL_STORAGE /storage/sdcard0
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
