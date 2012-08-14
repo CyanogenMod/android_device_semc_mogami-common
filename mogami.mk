@@ -47,4 +47,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
+    wifi.softap.interface=wlan0 \
+    wifi.softapconcurrent.interface=wlan0 \
     ro.telephony.default_network=0
