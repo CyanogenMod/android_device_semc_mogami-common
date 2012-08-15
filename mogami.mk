@@ -33,6 +33,8 @@ PRODUCT_COPY_FILES += \
     device/semc/mogami-common/wl12xx/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
 
 PRODUCT_PACKAGES += \
+    hostapd.conf \
+    wpa_supplicant.conf \
     hostapd_cli \
     hostapd
 
@@ -47,4 +49,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
+    wifi.softap.interface=wlan0 \
+    wifi.softapconcurrent.interface=wlan0 \
     ro.telephony.default_network=0
