@@ -100,6 +100,10 @@ on boot
 
     class_start default
 
+    # Fix for DHCP, if the lease is unable to get renewed.
+    rm /data/misc/dhcp/dhcpcd-wlan0.lease
+    rm /data/misc/dhcp/dhcpcd-wlan0.pid
+
     #load new wl1271 modules
     insmod /system/lib/modules/compat.ko
     insmod /system/lib/modules/compat_firmware_class.ko
