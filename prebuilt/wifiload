@@ -13,7 +13,4 @@ chown wifi.wifi /data/etc/wifi
 /system/bin/nvimport
 /system/bin/calibrator set upd_nvs /etc/tiwlan.ini /data/etc/wifi/fw
 
-mount -o remount rw /system
-cp /data/etc/wifi/wl1271-nvs.bin /system/etc/firmware/wl1271-nvs.bin
-mount -o remount ro /system
 fi
