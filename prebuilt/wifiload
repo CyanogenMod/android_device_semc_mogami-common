@@ -3,6 +3,13 @@
 # update nvs data on first boot...
 if [ ! -f /system/etc/firmware/wl1271-nvs.bin ]; then
 
+mkdir /data/etc
+chmod 775 /data/etc
+chown wifi.wifi /data/etc
+mkdir /data/etc/wifi
+chmod 775 /data/etc/wifi
+chown wifi.wifi /data/etc/wifi
+
 /system/bin/nvimport
 /system/bin/calibrator set upd_nvs /etc/tiwlan.ini /data/etc/wifi/fw
 
