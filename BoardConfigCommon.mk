@@ -22,9 +22,9 @@ BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_wl12xx
 BOARD_WLAN_DEVICE                := wl12xx_mac80211
 BOARD_SOFTAP_DEVICE              := wl12xx_mac80211
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
-WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
-WIFI_FIRMWARE_LOADER             := ""
+#WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
+#WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
+#WIFI_FIRMWARE_LOADER             := ""
 USES_TI_MAC80211 := true
 
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211

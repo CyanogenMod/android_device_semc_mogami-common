@@ -102,6 +102,8 @@ on boot
 
     #load new wl1271 modules
     exec /system/bin/wifiload
+    insmod /system/lib/modules/wl12xx.ko
+    insmod /system/lib/modules/wl12xx_sdio.ko
 
     # USB host support
     mkdir /dev/bus 0771 system system
