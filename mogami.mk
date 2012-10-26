@@ -24,13 +24,7 @@ PRODUCT_COPY_FILES += \
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
-    device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload \
-    device/semc/mogami-common/wl12xx/modules/compat.ko:system/lib/modules/compat.ko \
-    device/semc/mogami-common/wl12xx/modules/compat_firmware_class.ko:system/lib/modules/compat_firmware_class.ko \
-    device/semc/mogami-common/wl12xx/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
-    device/semc/mogami-common/wl12xx/modules/mac80211.ko:system/lib/modules/mac80211.ko \
-    device/semc/mogami-common/wl12xx/modules/wl12xx.ko:system/lib/modules/wl12xx.ko \
-    device/semc/mogami-common/wl12xx/modules/wl12xx_sdio.ko:system/lib/modules/wl12xx_sdio.ko
+    device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload
 
 PRODUCT_PACKAGES += \
     hostapd.conf \

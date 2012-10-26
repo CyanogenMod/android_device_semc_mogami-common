@@ -26,7 +26,9 @@ WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME          := "wl12xx_sdio"
 WIFI_FIRMWARE_LOADER             := ""
 USES_TI_MAC80211 := true
+
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
+#BOARD_LEGACY_NL80211_STA_EVENTS := true
 
 BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH := true
 TARGET_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
