@@ -24,10 +24,10 @@ PRODUCT_COPY_FILES += \
 
 #WIFI modules and configs
 PRODUCT_COPY_FILES += \
+    device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
     device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload
 
 PRODUCT_PACKAGES += \
-    hostapd.conf \
     wpa_supplicant.conf \
     hostapd_cli \
     hostapd
