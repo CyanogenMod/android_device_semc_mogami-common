@@ -1,6 +1,4 @@
-#!/system/xbin/ash
-
-# update nvs data on first boot...
+#!/system/bin/sh
 if [ ! -f /system/etc/firmware/wl1271-nvs.bin ]; then
 
 mkdir /data/etc
@@ -12,5 +10,9 @@ chown wifi.wifi /data/etc/wifi
 
 /system/bin/nvimport
 /system/bin/calibrator set upd_nvs /etc/tiwlan.ini /data/etc/wifi/fw
-
 fi
+
+/system/bin/insmod /system/lib/modules/wl12xx.ko
+/system/bin/insmod /system/lib/modules/wl12xx_sdio.ko
+/system/bin/iw phy phy0 wowlan enable any
+

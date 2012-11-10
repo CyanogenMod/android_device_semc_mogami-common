@@ -12,8 +12,6 @@ on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/hostapd 0770 wifi wifi
-#    chmod 0660 /data/misc/wifi/wpa_supplicant.conf
-#    chown wifi.wifi /data/misc/wifi/wpa_supplicant.conf
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
@@ -102,8 +100,6 @@ on boot
 
     #load new wl1271 modules
     exec /system/bin/wifiload
-    insmod /system/lib/modules/wl12xx.ko
-    insmod /system/lib/modules/wl12xx_sdio.ko
 
     # USB host support
     mkdir /dev/bus 0771 system system

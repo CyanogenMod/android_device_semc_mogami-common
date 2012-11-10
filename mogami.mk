@@ -15,6 +15,8 @@
 #
 -include device/semc/msm7x30-common/msm7x30.mk
 
+$(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-vendor-blobs.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
 # Init files  and configs
