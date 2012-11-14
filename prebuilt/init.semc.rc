@@ -2,11 +2,9 @@ import init.semc.usb.rc
 
 on early-boot
     #Run pre_hw_config.sh before entering charge only mode.
-    exec /sbin/sh /system/etc/pre_hw_config.sh
+    exec /system/bin/sh /system/etc/pre_hw_config.sh
     #offline charging
     exec /system/bin/chargemon
-    # Boot into recovery
-    exec /sbin/bootrec
 
 on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -191,7 +189,7 @@ on early-boot
     # Start touch firmware loader
     exec /system/bin/clearpad_fwloader
 
-service hw_config /sbin/sh /system/etc/hw_config.sh
+service hw_config /system/bin/sh /system/etc/hw_config.sh
     class main
     user root
     oneshot
