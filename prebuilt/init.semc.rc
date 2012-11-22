@@ -102,8 +102,6 @@ on boot
 
     #load new wl1271 modules
     exec /system/bin/wifiload
-    insmod /system/lib/modules/wl12xx.ko
-    insmod /system/lib/modules/wl12xx_sdio.ko
 
     # USB host support
     mkdir /dev/bus 0771 system system
@@ -195,3 +193,5 @@ service hw_config /sbin/sh /system/etc/hw_config.sh
     user root
     oneshot
 
+on property:dhcp.wlan0.result=ok
+    exec /system/bin/iw phy phy0 wowlan enable any
