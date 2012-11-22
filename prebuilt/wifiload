@@ -14,5 +14,4 @@ fi
 
 /system/bin/insmod /system/lib/modules/wl12xx.ko
 /system/bin/insmod /system/lib/modules/wl12xx_sdio.ko
-/system/bin/iw phy phy0 wowlan enable any
 

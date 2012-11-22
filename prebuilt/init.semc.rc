@@ -195,3 +195,7 @@ service hw_config /sbin/sh /system/etc/hw_config.sh
     class main
     user root
     oneshot
+
+on property:dhcp.wlan0.result=ok
+    exec /system/bin/iw phy phy0 wowlan enable any
+
