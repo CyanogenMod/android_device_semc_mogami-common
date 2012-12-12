@@ -22,6 +22,6 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Options that show upon long-pressing a key on the physical keyboard -->
-    <string name="symbol_picker_sym">\u2026\u2022\u00AE\u00A9\u00B1&quot;#*\u00A7\u00A3$\u20AC\u00A5&lt;&gt;&#39;\u0060^~[]{}\\\u00BF\u00A1\u00A4|</string>
+    <string name="symbol_picker_sym">&quot;#*&lt;&gt;&#39;\u0060^~[]{}\\|\u2026\u2022\u00AE\u00A9\u00B1\u00A7\u00A3$\u20AC\u00A5\u00BF\u00A1\u00A4\u263A</string>
 
 </resources>
