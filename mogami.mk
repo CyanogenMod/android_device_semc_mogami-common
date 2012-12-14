@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+$(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-vendor-blobs.mk)
+
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
 # Init files  and configs
