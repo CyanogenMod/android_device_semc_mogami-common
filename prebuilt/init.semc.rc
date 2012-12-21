@@ -199,3 +199,6 @@ service hw_config /sbin/sh /system/etc/hw_config.sh
 on property:dhcp.wlan0.result=ok
     exec /system/bin/iw phy phy0 wowlan enable any
 
+on property:init.svc.hostapd_bin=stopped
+    exec /system/bin/iw dev mon.wlan0 del
+
