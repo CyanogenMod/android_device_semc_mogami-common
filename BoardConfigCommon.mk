@@ -1,4 +1,4 @@
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 -include device/semc/msm7x30-common/BoardConfigCommon.mk
+-include vendor/semc/mogami-common/BoardConfigCommonVendor.mk
 
 TARGET_BOOTLOADER_BOARD_NAME := mogami
 
