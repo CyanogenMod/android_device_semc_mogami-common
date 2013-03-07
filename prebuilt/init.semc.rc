@@ -94,9 +94,6 @@ on boot
     chmod 0666 /sys/devices/i2c-0/0-0054/nburst
     chmod 0666 /sys/class/leds/lcd-backlight/als/enable
 
-    echo 1024000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    echo 122000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-
     class_start default
 
     #load new wl1271 modules
@@ -108,6 +105,16 @@ on boot
 
     chmod 0660 /sys/devices/platform/msm_hsusb/gadget/lun1/file
     chown usb usb /sys/devices/platform/msm_hsusb/gadget/lun1/file
+
+    # power-management
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1024000
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 122000
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
+    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 4
+    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
 
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
