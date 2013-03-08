@@ -15,6 +15,7 @@
 
 TARGET_BOOTLOADER_BOARD_NAME := mogami
 
+# WiFi
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
@@ -26,13 +27,16 @@ USES_TI_MAC80211 := true
 
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 
+# Bluetooth
 BOARD_HAVE_BLUETOOTH_CUSTOM_HCIATTACH := true
 TARGET_CUSTOM_BLUEDROID := ../../../device/semc/mogami-common/bluedroid/bluetooth.c
 
+# FM Radio
 BOARD_HAVE_QCOM_FM := true
 BOARD_HAVE_FM_RADIO_TI := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED -DHAVE_SEMC_FM_RADIO
 
+# Camera
 BOARD_CPU_COLOR_CONVERT:= true
 
 -include device/semc/msm7x30-common/Android.mk

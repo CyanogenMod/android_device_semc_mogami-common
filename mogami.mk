@@ -19,12 +19,15 @@ $(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-vendor-blobs.
 
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
-# Init files  and configs
+# These are the hardware-specific features
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
+# Init file
 PRODUCT_COPY_FILES += \
     device/semc/mogami-common/prebuilt/init.semc.rc:root/init.semc.rc
 
-#WIFI modules and configs
+# WiFi config & related files
 PRODUCT_COPY_FILES += \
     device/semc/mogami-common/prebuilt/hostapd.conf:system/etc/wifi/hostapd.conf \
     device/semc/mogami-common/prebuilt/wifiload:system/bin/wifiload
