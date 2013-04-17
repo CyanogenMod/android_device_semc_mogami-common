@@ -8,6 +8,8 @@ mkdir /data/etc/wifi
 chmod 775 /data/etc/wifi
 chown wifi.wifi /data/etc/wifi
 
+rm /data/misc/dhcp/*
+
 /system/bin/nvimport
 /system/bin/calibrator set upd_nvs /etc/tiwlan.ini /data/etc/wifi/fw
 fi
