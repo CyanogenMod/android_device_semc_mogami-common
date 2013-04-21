@@ -15,8 +15,6 @@
 #
 -include device/semc/msm7x30-common/msm7x30.mk
 
-$(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-vendor-blobs.mk)
-
 DEVICE_PACKAGE_OVERLAYS += device/semc/mogami-common/overlay
 
 # These are the hardware-specific features
@@ -52,3 +50,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.softapconcurrent.interface=wlan0 \
     ro.telephony.ril_class=SemcRIL \
     ro.telephony.default_network=0
+
+$(call inherit-product-if-exists, vendor/semc/mogami-common/mogami-common-vendor.mk)

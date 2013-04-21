@@ -1,0 +1,24 @@
+# WiFi/BT/FM TI wl1273
+bin/iw
+bin/nvimport
+bin/calibrator
+etc/firmware/fm_rx_init_1273.1.bts
+etc/firmware/fm_rx_init_1273.2.bts
+etc/firmware/fm_tx_init_1273.1.bts
+etc/firmware/fm_tx_init_1273.2.bts
+etc/firmware/fmc_init_1273.1.bts
+etc/firmware/fmc_init_1273.2.bts
+etc/firmware/TIInit_7.5.20.bts
+etc/firmware/TIInit_7.6.15.bts
+etc/firmware/wl1271-fw-multirole-roc.bin
+lib/libnl.so
+
+# ANT+
+app/AntHalService.apk
+app/antradioservice.apk
+app/antstatenotifer.apk
+etc/permissions/com.dsi.ant.antradio_library.xml
+etc/permissions/com.sonyericsson.suquashi.xml
+framework/com.dsi.ant.antradio_library.jar
+framework/com.sonyericsson.suquashi.jar
+lib/libanthal.so
